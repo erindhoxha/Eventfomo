@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-gradient-to-r">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
