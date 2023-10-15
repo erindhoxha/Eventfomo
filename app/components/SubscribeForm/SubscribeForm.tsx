@@ -10,7 +10,6 @@ import {
   FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
@@ -47,17 +46,19 @@ const Form = () => {
               <FormControl>
                 <div className="flex flex-col sm:flex-row max-w-sm space-y-2 sm:space-y-0">
                   <Input
-                    className=""
-                    placeholder="email@email.com"
+                    className="lg:min-w-[250px]"
+                    placeholder="Your best email"
                     {...field}
                   />
-                  <Button className="ml-1" type="submit">
-                    Submit
+                  <Button className="lg:ml-1" type="submit">
+                    Subscribe
                   </Button>
                 </div>
               </FormControl>
               <FormDescription>
                 We will send you the events in this email.
+                <br />
+                Join 100+ users for free.
               </FormDescription>
               <FormMessage />
             </FormItem>
