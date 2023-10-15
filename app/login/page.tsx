@@ -24,9 +24,9 @@ export default function AuthenticationPage() {
         Go back
       </Link>
       <div className="py-24 px-6 lg:p-0 h-[100vh] flex">
-        <div className="bg-zinc-900 hidden h-full max-w-lg flex-col bg-muted p-10 text-white lg:flex">
+        <div className="dark:bg-zinc-900 hidden h-full max-w-lg flex-col bg-muted p-10 dark:text-white lg:flex">
           <div className="z-20 flex items-center text-sm text-muted-foreground">
-            eventfomo_
+            <Link href="/">eventfomo_</Link>
           </div>
           <div className="z-20 mt-auto">
             <blockquote className="space-y-2">

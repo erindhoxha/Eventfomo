@@ -14,7 +14,6 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { useForm } from 'react-hook-form';
-import { Paragraph } from '../Typography/Typography';
 import { Icons } from '@/components/ui/icons';
 
 const formSchema = z.object({
@@ -70,7 +69,7 @@ const Form = () => {
               <FormDescription>
                 We will send you the events in this email.
               </FormDescription>
-              <FormMessage />
+              <FormMessage className="text-destructive" />
             </FormItem>
           )}
         />

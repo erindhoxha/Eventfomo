@@ -42,6 +42,9 @@ export default function Home() {
             Enjoy everyday emails that you can sync on your calendar
           </li>
         </ul>
+        <p className="text-sm text-muted-foreground">
+          You can unsubscribe anytime.
+        </p>
       </div>
     </main>
   );

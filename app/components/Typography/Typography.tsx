@@ -31,7 +31,7 @@ export function H4({ children }: { children: string }) {
 }
 
 export function Paragraph({ children }: { children: string }) {
-  return <p className="[&:not(:first-child)]:mt-6">{children}</p>;
+  return <p className="[&:not(:first-child)]:mt-6 text-base">{children}</p>;
 }
 
 export function BlockQuote({ children }: { children: string }) {
