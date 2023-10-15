@@ -1,6 +1,5 @@
 import React from 'react';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
-import Link from 'next/link';
 import LinkComponent from '../Link/Link';
 
 const Header = () => {
