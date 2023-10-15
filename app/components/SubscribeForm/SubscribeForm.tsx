@@ -15,6 +15,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { useForm } from 'react-hook-form';
 import { Paragraph } from '../Typography/Typography';
+import { Icons } from '@/components/ui/icons';
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -53,7 +54,14 @@ const Form = () => {
                       placeholder="Your best email"
                       {...field}
                     />
-                    <Button className="lg:ml-1" type="submit">
+                    <Button
+                      type="submit"
+                      className="lg:ml-1"
+                      disabled={form.formState.isSubmitting}
+                    >
+                      {form.formState.isSubmitting && (
+                        <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+                      )}
                       Subscribe
                     </Button>
                   </div>
