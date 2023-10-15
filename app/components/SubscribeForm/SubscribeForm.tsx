@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { useForm } from 'react-hook-form';
+import { Paragraph } from '../Typography/Typography';
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -37,28 +38,29 @@ const Form = () => {
 
   return (
     <UIForm {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full lg:w-max">
         <FormField
           control={form.control}
           name="username"
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <div className="flex flex-col sm:flex-row max-w-sm space-y-2 sm:space-y-0">
-                  <Input
-                    className="lg:min-w-[250px]"
-                    placeholder="Your best email"
-                    {...field}
-                  />
-                  <Button className="lg:ml-1" type="submit">
-                    Subscribe
-                  </Button>
+                <div>
+                  <p className="text-sm mb-1.5">Join 100+ users</p>
+                  <div className="flex flex-col sm:flex-row max-w-sm space-y-2 sm:space-y-0">
+                    <Input
+                      className="lg:min-w-[250px]"
+                      placeholder="Your best email"
+                      {...field}
+                    />
+                    <Button className="lg:ml-1" type="submit">
+                      Subscribe
+                    </Button>
+                  </div>
                 </div>
               </FormControl>
               <FormDescription>
                 We will send you the events in this email.
-                <br />
-                Join 100+ users for free.
               </FormDescription>
               <FormMessage />
             </FormItem>
