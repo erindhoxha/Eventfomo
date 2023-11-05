@@ -36,6 +36,13 @@ export default function Home() {
      You can unsubscribe anytime.
     </p>
    </div>
+
+   <div className="mt-12 sm:mt-24 w-full">
+    {/* Make this pop */}
+    <H2>Latest games</H2>
+    <Paragraph>LG vs EG - Ongoing / Live</Paragraph>
+    <Paragraph>LG vs EG - Dec 12, 2024</Paragraph>
+   </div>
   </main>
  );
 }
