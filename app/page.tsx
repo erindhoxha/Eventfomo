@@ -3,8 +3,23 @@ import Header from './components/Header/Header';
 import SubscribeForm from './components/SubscribeForm/SubscribeForm';
 import { H1, H2, H3, H4, Paragraph } from './components/Typography/Typography';
 import Card from './components/Card/Card';
+import { Payment, columns } from './games/columns';
+import { DataTable } from './games/data-table';
+
+async function getData(): Promise<Payment[]> {
+ // Fetch data from your API here.
+ return [
+  {
+   id: '728ed52f',
+   amount: 100,
+   status: '2023 World Championship [Worlds 2023]',
+   email: '24 Oct, 2024 21:00',
+  },
+ ];
+}
 
 export default function Home() {
+ const data = getData();
  return (
   <main className="flex flex-col items-start p-6 lg:p-6 container">
    <Header />
@@ -46,8 +61,25 @@ export default function Home() {
    <div className="mt-12 sm:mt-24 w-full">
     {/* Make this pop */}
     <H3>Latest games</H3>
-    <Paragraph>LG vs EG - Ongoing / Live</Paragraph>
-    <Paragraph>LG vs EG - Dec 12, 2024</Paragraph>
+    <div className="mt-4">
+     <DataTable
+      columns={columns}
+      data={[
+       {
+        id: '728ed52f',
+        amount: '$400,000',
+        status: '2023 World Championship [Worlds 2023]',
+        email: '24 Oct, 2024 21:00',
+       },
+       {
+        id: '728ed52f',
+        amount: '$100,000',
+        status: '2023 Dota TI Championship',
+        email: '24 Oct, 2024 21:00',
+       },
+      ]}
+     />
+    </div>
    </div>
   </main>
  );
