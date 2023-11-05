@@ -1,6 +1,8 @@
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Header from './components/Header/Header';
 import SubscribeForm from './components/SubscribeForm/SubscribeForm';
-import { H1, H2, H4, Paragraph } from './components/Typography/Typography';
+import { H1, H2, H3, H4, Paragraph } from './components/Typography/Typography';
+import Card from './components/Card/Card';
 
 export default function Home() {
  return (
@@ -20,26 +22,30 @@ export default function Home() {
    </div>
 
    <div className="mt-12 sm:mt-24 w-full">
-    <H2>How it works</H2>
-    <ul className="my-6 ml-6 [&>li]:mt-2 list-decimal">
-     <li className="text-muted-foreground">
-      Subscribe with your email address
-     </li>
-     <li className="text-muted-foreground">
-      Choose the games you want to follow
-     </li>
-     <li className="text-muted-foreground">
-      Enjoy everyday emails that you can sync on your calendar
-     </li>
-    </ul>
-    <p className="text-sm text-muted-foreground">
+    <H3>How it works</H3>
+    <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-3 w-full mt-4">
+     <Card
+      description="1. Subscribe"
+      subtext="Subscribe with your email address. Please note that we will send you emails 24 hours prior to a tournament, so you won't miss any game."
+     />
+     <Card
+      description="2. Select"
+      subtext="Select the games you want to follow or sync on your calendar. You can also choose all games, we will send you an email before a tournament happens."
+     />
+     <Card
+      description="3. Sync"
+      subtext="Enjoy everyday emails that you can sync on your calendar. You can sync with your Google calendar, Outlook and Apple calendar."
+     />
+    </div>
+
+    <p className="text-sm text-muted-foreground mt-2">
      You can unsubscribe anytime.
     </p>
    </div>
 
    <div className="mt-12 sm:mt-24 w-full">
     {/* Make this pop */}
-    <H2>Latest games</H2>
+    <H3>Latest games</H3>
     <Paragraph>LG vs EG - Ongoing / Live</Paragraph>
     <Paragraph>LG vs EG - Dec 12, 2024</Paragraph>
    </div>
