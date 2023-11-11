@@ -6,11 +6,11 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 
-const MiniTable = () => {
+const MiniTable = ({ title }: { title: string }) => {
   return (
     <Card className="col-span-1 bg-dark">
       <CardHeader>
-        <CardTitle>Recent Tournaments</CardTitle>
+        <CardTitle>{title}</CardTitle>
         <CardDescription>Games that will play this week</CardDescription>
       </CardHeader>
       <CardContent>

@@ -124,10 +124,11 @@ export default async function Home() {
       </div>
 
       <div className="mt-12 sm:mt-24 w-full">
+        <MiniTable title="Popular ongoing events" />
         {/* Make this pop */}
         <div className="grid gap-4 md:grid-cols-2 mt-4">
-          <MiniTable />
-          <MiniTable />
+          <MiniTable title="Recent Tournaments" />
+          <MiniTable title="Upcoming Tournaments" />
         </div>
         <div className="mt-12">
           <H3>Upcoming events</H3>
