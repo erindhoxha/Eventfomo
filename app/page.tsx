@@ -5,6 +5,7 @@ import { H1, H2, H3, H4, Paragraph } from './components/Typography/Typography';
 import Card from './components/Card/Card';
 import { Games, columns } from './games/columns';
 import { DataTable } from './games/data-table';
+import MiniTable from './components/MiniTable/MiniTable';
 
 async function getData(): Promise<Games[]> {
   // Fetch data from your API here.
@@ -124,9 +125,15 @@ export default async function Home() {
 
       <div className="mt-12 sm:mt-24 w-full">
         {/* Make this pop */}
-        <H3>Upcoming events</H3>
-        <div className="mt-4">
-          <DataTable columns={columns} data={data} />
+        <div className="grid gap-4 md:grid-cols-2 mt-4">
+          <MiniTable />
+          <MiniTable />
+        </div>
+        <div className="mt-12">
+          <H3>Upcoming events</H3>
+          <div className="mt-4">
+            <DataTable columns={columns} data={data} />
+          </div>
         </div>
       </div>
     </main>
