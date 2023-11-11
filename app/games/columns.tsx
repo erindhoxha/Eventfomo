@@ -22,7 +22,20 @@ export const columns: ColumnDef<Games>[] = [
   },
   {
     accessorKey: 'prizePool',
-    header: 'Prize Pool',
+    header: ({ column }) => {
+      return (
+        <Button
+          style={{
+            paddingLeft: 0,
+          }}
+          variant="none"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
+          Prize Pool
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
   },
   {
     accessorKey: 'eventDate',
