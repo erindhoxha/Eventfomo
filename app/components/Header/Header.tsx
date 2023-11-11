@@ -17,27 +17,27 @@ import {
 const components: { title: string; href: string; game: string }[] = [
   {
     title: 'Chess',
-    href: '/docs/primitives/alert-dialog',
+    href: '/games/chess',
     game: 'chess',
   },
   {
     title: 'Dota 2',
-    href: '/docs/primitives/hover-card',
+    href: '/games/dota',
     game: 'dota',
   },
   {
     title: 'League of Legends',
-    href: '/docs/primitives/progress',
+    href: '/games/league-of-legends',
     game: 'lol',
   },
   {
     title: 'CS:GO 2',
-    href: '/docs/primitives/tabs',
+    href: '/games/csgo',
     game: 'csgo',
   },
   {
     title: 'World of Warcraft',
-    href: '/docs/primitives/tabs',
+    href: '/games/wow',
     game: 'wow',
   },
 ];

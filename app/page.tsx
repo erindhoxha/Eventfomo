@@ -124,7 +124,7 @@ export default async function Home() {
 
       <div className="mt-12 sm:mt-24 w-full">
         {/* Make this pop */}
-        <H3>Latest games</H3>
+        <H3>Upcoming events</H3>
         <div className="mt-4">
           <DataTable columns={columns} data={data} />
         </div>
