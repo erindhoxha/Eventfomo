@@ -5,8 +5,10 @@ export function NavBar() {
   return (
     <>
       <div className="gap-1 hidden lg:flex">
-        <LinkComponent size="default" variant="ghost" href="/">
-          eventfomo
+        <LinkComponent size="none" variant="none" href="/">
+          <p className="text-lg font-bold tracking-normal mr-4 border-b border-b-green-500">
+            Eventfomo
+          </p>
         </LinkComponent>
         <LinkComponent variant="outline" href="/games/chess">
           <div className="mr-1">

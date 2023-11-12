@@ -7,6 +7,33 @@ import { Games, columns } from './games/columns';
 import { DataTable } from './games/data-table';
 import MiniTable from './components/MiniTable/MiniTable';
 
+async function getOngoingEvents() {
+  return [
+    {
+      id: '1234',
+      name: 'The international 2018',
+      game: 'dota',
+      description: 'EG vs LGD, best of 3',
+      eventDate: '10/07/2021',
+    },
+    {
+      id: '1234',
+      name: 'WoW Arena World Championship',
+      game: 'wow',
+      description: 'Method vs Cloud9, best of 5',
+      eventDate: '10/07/2021',
+    },
+    {
+      id: '1234',
+
+      name: 'League of Legends Poland Championship',
+      game: 'lol',
+      description: 'Liquid vs EG, best of 3',
+      eventDate: '10/07/2021',
+    },
+  ];
+}
+
 async function getData(): Promise<Games[]> {
   // Fetch data from your API here.
   return [
@@ -85,6 +112,7 @@ async function getData(): Promise<Games[]> {
 
 export default async function Home() {
   const data = await getData();
+  const ongoingEvents = await getOngoingEvents();
   return (
     <main className="flex flex-col items-start p-6 lg:p-6 container">
       <Header />
@@ -124,16 +152,129 @@ export default async function Home() {
       </div>
 
       <div className="mt-12 sm:mt-24 w-full">
-        <MiniTable title="Popular ongoing events" />
+        <MiniTable title="Popular ongoing events" items={ongoingEvents} />
         {/* Make this pop */}
         <div className="grid gap-4 md:grid-cols-2 mt-4">
-          <MiniTable title="Recent Tournaments" />
-          <MiniTable title="Upcoming Tournaments" />
+          <MiniTable title="Recent Tournaments" items={ongoingEvents} />
+          <MiniTable title="Upcoming Tournaments" items={ongoingEvents} />
         </div>
         <div className="mt-12">
           <H3>Upcoming events</H3>
           <div className="mt-4">
             <DataTable columns={columns} data={data} />
+          </div>
+        </div>
+        <div className="mt-12">
+          <H3>Tournaments by game</H3>
+          <div className="grid gap-4 md:grid-cols-2 mt-4">
+            <MiniTable
+              title="Chess Tournaments"
+              items={[
+                {
+                  id: '1234',
+                  name: 'The international 2018',
+                  game: 'chess',
+                  description: 'EG vs LGD, best of 3',
+                  eventDate: '10/07/2021',
+                },
+                {
+                  id: '1234',
+                  name: 'WoW Arena World Championship',
+                  game: 'chess',
+                  description: 'Method vs Cloud9, best of 5',
+                  eventDate: '10/07/2021',
+                },
+                {
+                  id: '1234',
+
+                  name: 'League of Legends Poland Championship',
+                  game: 'chess',
+                  description: 'Liquid vs EG, best of 3',
+                  eventDate: '10/07/2021',
+                },
+              ]}
+            />
+            <MiniTable
+              title="League of Legends Tournaments"
+              items={[
+                {
+                  id: '1234',
+                  name: 'The international 2018',
+                  game: 'lol',
+                  description: 'EG vs LGD, best of 3',
+                  eventDate: '10/07/2021',
+                },
+                {
+                  id: '1234',
+                  name: 'WoW Arena World Championship',
+                  game: 'lol',
+                  description: 'Method vs Cloud9, best of 5',
+                  eventDate: '10/07/2021',
+                },
+                {
+                  id: '1234',
+
+                  name: 'League of Legends Poland Championship',
+                  game: 'lol',
+                  description: 'Liquid vs EG, best of 3',
+                  eventDate: '10/07/2021',
+                },
+              ]}
+            />
+            <MiniTable
+              title="League of Legends Tournaments"
+              items={[
+                {
+                  id: '1234',
+                  name: 'The international 2018',
+                  game: 'dota',
+                  description: 'EG vs LGD, best of 3',
+                  eventDate: '10/07/2021',
+                },
+                {
+                  id: '1234',
+                  name: 'WoW Arena World Championship',
+                  game: 'dota',
+                  description: 'Method vs Cloud9, best of 5',
+                  eventDate: '10/07/2021',
+                },
+                {
+                  id: '1234',
+
+                  name: 'League of Legends Poland Championship',
+                  game: 'dota',
+                  description: 'Liquid vs EG, best of 3',
+                  eventDate: '10/07/2021',
+                },
+              ]}
+            />
+            <MiniTable
+              title="League of Legends Tournaments"
+              items={[
+                {
+                  id: '1234',
+                  name: 'The international 2018',
+                  game: 'csgo',
+                  description: 'EG vs LGD, best of 3',
+                  eventDate: '10/07/2021',
+                },
+                {
+                  id: '1234',
+                  name: 'WoW Arena World Championship',
+                  game: 'csgo',
+                  description: 'Method vs Cloud9, best of 5',
+                  eventDate: '10/07/2021',
+                },
+                {
+                  id: '1234',
+
+                  name: 'League of Legends Poland Championship',
+                  game: 'csgo',
+                  description: 'Liquid vs EG, best of 3',
+                  eventDate: '10/07/2021',
+                },
+              ]}
+            />
           </div>
         </div>
       </div>

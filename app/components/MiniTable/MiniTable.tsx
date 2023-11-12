@@ -6,141 +6,76 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 
-const MiniTable = ({ title }: { title: string }) => {
+interface MiniTableItemProps {
+  id: string;
+  name: string;
+  game: string;
+  description: string;
+  eventDate: string;
+}
+interface MiniTableProps {
+  title: string;
+  description?: string;
+  items: MiniTableItemProps[];
+}
+
+const ListItem = ({
+  name,
+  game,
+  description,
+  eventDate,
+}: Omit<MiniTableItemProps, 'id'>) => {
+  return (
+    <div className="flex items-center">
+      <div className="space-y-1 flex items-center">
+        <div className="mr-2">
+          <img
+            width="24"
+            style={{
+              minWidth: 36,
+              minHeight: 36,
+            }}
+            height="24"
+            src={`/img/icons/${game}.png`}
+            alt={`${game} icon`}
+          />
+        </div>
+        <div>
+          <p className="text-sm font-medium leading-none">{name}</p>
+          <p className="text-sm text-muted-foreground">{description}</p>
+        </div>
+      </div>
+      <p className="ml-auto text-sm">{eventDate}</p>
+    </div>
+  );
+};
+
+const MiniTable = ({ title, description, items }: MiniTableProps) => {
   return (
     <Card className="col-span-1 bg-dark">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
-        <CardDescription>Games that will play this week</CardDescription>
+        <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="space-y-8">
-          <div className="flex items-center">
-            <div className="ml-4 space-y-1 flex items-center">
-              <div className="mr-2">
-                <img
-                  width="24"
-                  style={{
-                    minWidth: 36,
-                    minHeight: 36,
-                  }}
-                  height="24"
-                  src={`/img/icons/dota.png`}
-                  alt="dota icon"
-                />
-              </div>
-              <div>
-                <p className="text-sm font-medium leading-none">
-                  The International 2023
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  EG vs LGD, Best of 3
-                </p>
-              </div>
-            </div>
-            <p className="ml-auto text-sm">10/11/2024</p>
-          </div>
-          <div className="flex items-center">
-            <div className="ml-4 space-y-1 flex items-center">
-              <div className="mr-2">
-                <img
-                  width="24"
-                  style={{
-                    minWidth: 36,
-                    minHeight: 36,
-                  }}
-                  height="24"
-                  src={`/img/icons/chess.png`}
-                  alt="chess icon"
-                />
-              </div>
-              <div>
-                <p className="text-sm font-medium leading-none">
-                  The International 2023
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  EG vs LGD, Best of 3
-                </p>
-              </div>
-            </div>
-            <p className="ml-auto text-sm">10/11/2024</p>
-          </div>
-          <div className="flex items-center">
-            <div className="ml-4 space-y-1 flex items-center">
-              <div className="mr-2">
-                <img
-                  width="24"
-                  style={{
-                    minWidth: 36,
-                    minHeight: 36,
-                  }}
-                  height="24"
-                  src={`/img/icons/lol.png`}
-                  alt="lol icon"
-                />
-              </div>
-              <div>
-                <p className="text-sm font-medium leading-none">
-                  The International 2023
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  EG vs LGD, Best of 3
-                </p>
-              </div>
-            </div>
-            <p className="ml-auto text-sm">10/11/2024</p>
-          </div>
-          <div className="flex items-center">
-            <div className="ml-4 space-y-1 flex items-center">
-              <div className="mr-2">
-                <img
-                  width="24"
-                  style={{
-                    minWidth: 36,
-                    minHeight: 36,
-                  }}
-                  height="24"
-                  src={`/img/icons/csgo.png`}
-                  alt="lol icon"
-                />
-              </div>
-              <div>
-                <p className="text-sm font-medium leading-none">
-                  The International 2023
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  EG vs LGD, Best of 3
-                </p>
-              </div>
-            </div>
-            <p className="ml-auto text-sm">10/11/2024</p>
-          </div>
-          <div className="flex items-center">
-            <div className="ml-4 space-y-1 flex items-center">
-              <div className="mr-2">
-                <img
-                  width="24"
-                  style={{
-                    minWidth: 36,
-                    minHeight: 36,
-                  }}
-                  height="24"
-                  src={`/img/icons/wow.png`}
-                  alt="dota icon"
-                />
-              </div>
-              <div>
-                <p className="text-sm font-medium leading-none">
-                  The International 2023
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  EG vs LGD, Best of 3
-                </p>
-              </div>
-            </div>
-            <p className="ml-auto text-sm">10/11/2024</p>
-          </div>
+        <div className="space-y-4">
+          {items?.map((item) => (
+            <ListItem
+              key={item.id}
+              name={item.name}
+              description={item.description}
+              game={item.game}
+              eventDate={item.eventDate}
+            />
+          ))}
         </div>
+        {(!items || items.length === 0) && (
+          <div className="flex flex-col items-center justify-center">
+            <p className="text-sm text-muted-foreground">
+              No ongoing events for now
+            </p>
+          </div>
+        )}
       </CardContent>
     </Card>
   );

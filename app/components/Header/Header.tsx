@@ -49,8 +49,10 @@ const Header = () => {
       <div className="lg:hidden">
         <NavigationMenu>
           <NavigationMenuList>
-            <LinkComponent size="default" variant="ghost" href="/">
-              eventfomo
+            <LinkComponent size="none" variant="none" href="/">
+              <p className="text-lg font-bold tracking-normal mr-4 border-b border-b-green-500">
+                Eventfomo
+              </p>
             </LinkComponent>
             <NavigationMenuItem>
               <NavigationMenuTrigger className="border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground">
