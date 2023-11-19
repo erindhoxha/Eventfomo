@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout(props: any) {
  return (
-  <html lang="en">
+  <html lang="en" suppressHydrationWarning>
    <body className="bg-gradient-to-r">
     <ThemeProvider
      attribute="class"

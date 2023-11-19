@@ -15,10 +15,11 @@ import {
 import { Input } from '@/components/ui/input';
 import { useForm } from 'react-hook-form';
 import { Icons } from '@/components/ui/icons';
+import useSignInWithEmail from '@/app/hooks/useSignInWithEmail';
 
 const formSchema = z.object({
- username: z.string().min(2, {
-  message: 'Username must be at least 2 characters.',
+ email: z.string().min(2, {
+  message: 'Email address must be at least 2 characters.',
  }),
 });
 
@@ -26,14 +27,12 @@ const Form = () => {
  const form = useForm<z.infer<typeof formSchema>>({
   resolver: zodResolver(formSchema),
   defaultValues: {
-   username: '',
+   email: '',
   },
  });
 
- function onSubmit(values: z.infer<typeof formSchema>) {
-  // Do something with the form values.
-  // ✅ This will be type-safe and validated.
-  console.log(values);
+ async function onSubmit(values: z.infer<typeof formSchema>) {
+  await useSignInWithEmail(values.email);
  }
 
  return (
@@ -41,7 +40,7 @@ const Form = () => {
    <form onSubmit={form.handleSubmit(onSubmit)} className="w-full lg:w-max">
     <FormField
      control={form.control}
-     name="username"
+     name="email"
      render={({ field }) => (
       <FormItem>
        <FormControl>

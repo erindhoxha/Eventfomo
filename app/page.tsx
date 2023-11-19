@@ -9,10 +9,14 @@ import {
 import Card from './components/Card/Card';
 import MiniTable from './components/MiniTable/MiniTable';
 import { Box } from './components/Box/Box';
-import supabase from '@/supabase';
+import useAllUpcomingEvents from './hooks/useAllUpcomingEvents';
+import useAllOngoingEvents from './hooks/useAllOngoingEvents';
+import useAllPreviousEvents from './hooks/useAllPreviousEvents';
 
 export default async function Home() {
- const query = await supabase.from('all-upcoming-events').select('*');
+ const upcomingEvents = await useAllUpcomingEvents();
+ const ongoingEvents = await useAllOngoingEvents();
+ const previousEvents = await useAllPreviousEvents();
 
  return (
   <main className="flex flex-col items-start p-6 lg:p-6 container">
@@ -51,11 +55,11 @@ export default async function Home() {
    </div>
 
    <div className="mt-12 sm:mt-24 w-full">
-    <MiniTable title="Popular ongoing events" items={query.data} />
+    <MiniTable title="Popular ongoing events" items={ongoingEvents.data} />
     {/* Make this pop */}
     <div className="grid gap-4 md:grid-cols-2 mt-4">
-     <MiniTable title="Recent Tournaments" items={query.data} />
-     <MiniTable title="Upcoming Tournaments" items={query.data} />
+     <MiniTable title="Recent Tournaments" items={previousEvents.data} />
+     <MiniTable title="Upcoming Tournaments" items={upcomingEvents.data} />
     </div>
     <div className="mt-12">
      <H3>Upcoming events</H3>
@@ -66,10 +70,19 @@ export default async function Home() {
     <Box marginTop={12}>
      <H3>Tournaments by game</H3>
      <div className="grid gap-4 md:grid-cols-2 mt-4">
-      <MiniTable title="Chess Tournaments" items={query.data} />
-      <MiniTable title="League of Legends Tournaments" items={query.data} />
-      <MiniTable title="League of Legends Tournaments" items={query.data} />
-      <MiniTable title="League of Legends Tournaments" items={query.data} />
+      <MiniTable title="Chess Tournaments" items={upcomingEvents.data} />
+      <MiniTable
+       title="League of Legends Tournaments"
+       items={upcomingEvents.data}
+      />
+      <MiniTable
+       title="League of Legends Tournaments"
+       items={upcomingEvents.data}
+      />
+      <MiniTable
+       title="League of Legends Tournaments"
+       items={upcomingEvents.data}
+      />
      </div>
     </Box>
    </div>
