@@ -8,12 +8,13 @@ import {
 
 interface MiniTableItemProps {
  created_at: string;
- date: string | null;
- description: string | null;
- game: 'dota' | 'lol' | 'wow' | 'chess' | 'csgo' | null;
+ date: string;
+ description: string;
+ game: 'dota' | 'lol' | 'wow' | 'chess' | 'csgo';
  id: number;
- name: string | null;
+ name: string;
 }
+
 interface MiniTableProps {
  title: string;
  description?: string;

@@ -9,30 +9,84 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      "all-upcoming-events": {
+      "all-ongoing-events": {
         Row: {
           created_at: string
-          date: string | null
-          description: string | null
-          game: Database["public"]["Enums"]["Game"] | null
+          date: string
+          description: string
+          game: Database["public"]["Enums"]["Game"]
           id: number
-          name: string | null
+          name: string
         }
         Insert: {
           created_at?: string
-          date?: string | null
-          description?: string | null
-          game?: Database["public"]["Enums"]["Game"] | null
+          date: string
+          description: string
+          game: Database["public"]["Enums"]["Game"]
           id?: number
-          name?: string | null
+          name: string
         }
         Update: {
           created_at?: string
-          date?: string | null
-          description?: string | null
-          game?: Database["public"]["Enums"]["Game"] | null
+          date?: string
+          description?: string
+          game?: Database["public"]["Enums"]["Game"]
           id?: number
-          name?: string | null
+          name?: string
+        }
+        Relationships: []
+      }
+      "all-previous-events": {
+        Row: {
+          created_at: string
+          date: string
+          description: string
+          game: Database["public"]["Enums"]["Game"]
+          id: number
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          date: string
+          description: string
+          game: Database["public"]["Enums"]["Game"]
+          id?: number
+          name: string
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          description?: string
+          game?: Database["public"]["Enums"]["Game"]
+          id?: number
+          name?: string
+        }
+        Relationships: []
+      }
+      "all-upcoming-events": {
+        Row: {
+          created_at: string
+          date: string
+          description: string
+          game: Database["public"]["Enums"]["Game"]
+          id: number
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          date: string
+          description: string
+          game: Database["public"]["Enums"]["Game"]
+          id?: number
+          name: string
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          description?: string
+          game?: Database["public"]["Enums"]["Game"]
+          id?: number
+          name?: string
         }
         Relationships: []
       }
