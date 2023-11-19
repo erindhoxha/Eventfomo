@@ -12,6 +12,8 @@ import { Box } from './components/Box/Box';
 import useAllUpcomingEvents from './hooks/useAllUpcomingEvents';
 import useAllOngoingEvents from './hooks/useAllOngoingEvents';
 import useAllPreviousEvents from './hooks/useAllPreviousEvents';
+import { DataTable } from './games/data-table';
+import { columns } from './games/columns';
 
 export default async function Home() {
  const upcomingEvents = await useAllUpcomingEvents();
@@ -63,9 +65,11 @@ export default async function Home() {
     </div>
     <div className="mt-12">
      <H3>Upcoming events</H3>
-     <Box marginTop={4}>
-      {/* <DataTable columns={columns} data={data} /> */}
-     </Box>
+     {previousEvents.data && (
+      <Box marginTop={4}>
+       <DataTable columns={columns} data={previousEvents.data} />
+      </Box>
+     )}
     </div>
     <Box marginTop={12}>
      <H3>Tournaments by game</H3>
