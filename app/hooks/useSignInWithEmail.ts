@@ -7,6 +7,10 @@ async function useSignInWithEmail(email: string) {
    emailRedirectTo: 'https://localhost:3000/',
   },
  });
+ return {
+  data,
+  error,
+ };
 }
 
 export default useSignInWithEmail;
