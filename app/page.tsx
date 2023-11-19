@@ -8,9 +8,10 @@ import {
 } from './components/Typography/Typography';
 import Card from './components/Card/Card';
 import { Games, columns } from './games/columns';
-import { DataTable } from './games/data-table';
 import MiniTable from './components/MiniTable/MiniTable';
 import { Box } from './components/Box/Box';
+import { createClient } from '@supabase/supabase-js';
+import supabase from '@/supabase';
 
 async function getOngoingEvents() {
  return [
@@ -116,8 +117,12 @@ async function getData(): Promise<Games[]> {
 }
 
 export default async function Home() {
- const data = await getData();
- const ongoingEvents = await getOngoingEvents();
+ // Create a single supabase client for interacting with your database
+
+ let { data, error } = await supabase.from('all-upcoming-events').select('');
+
+ console.log('Data', data);
+
  return (
   <main className="flex flex-col items-start p-6 lg:p-6 container">
    <Header />
@@ -155,16 +160,16 @@ export default async function Home() {
    </div>
 
    <div className="mt-12 sm:mt-24 w-full">
-    <MiniTable title="Popular ongoing events" items={ongoingEvents} />
+    <MiniTable title="Popular ongoing events" items={data} />
     {/* Make this pop */}
     <div className="grid gap-4 md:grid-cols-2 mt-4">
-     <MiniTable title="Recent Tournaments" items={ongoingEvents} />
-     <MiniTable title="Upcoming Tournaments" items={ongoingEvents} />
+     <MiniTable title="Recent Tournaments" items={data} />
+     <MiniTable title="Upcoming Tournaments" items={data} />
     </div>
     <div className="mt-12">
      <H3>Upcoming events</H3>
      <Box marginTop={4}>
-      <DataTable columns={columns} data={data} />
+      {/* <DataTable columns={columns} data={data} /> */}
      </Box>
     </div>
     <Box marginTop={12}>
