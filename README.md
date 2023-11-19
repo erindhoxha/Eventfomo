@@ -42,3 +42,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ### Run the project in development env
 
 `yarn dev`
+
+### Created database generated types
+
+`supabase gen types typescript --project-id {{projectReferenceID}} > database.generated.types.ts`
