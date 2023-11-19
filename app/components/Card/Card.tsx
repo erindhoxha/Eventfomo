@@ -1,7 +1,6 @@
 import {
  Card as UICard,
  CardContent,
- CardDescription,
  CardHeader,
  CardTitle,
 } from '@/components/ui/card';

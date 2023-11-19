@@ -19,6 +19,7 @@ const LinkComponent = ({
   <Link
    href={href}
    className={cn(buttonVariants({ variant: variant ?? 'ghost', size: size }))}
+   {...props}
   >
    {children}
   </Link>

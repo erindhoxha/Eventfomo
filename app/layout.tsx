@@ -1,9 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { ThemeProvider } from '@/components/context/theme-provider';
-import { NavBar } from './components/NavigationMenu/NavigationMenu';
-import Header from './components/Header/Header';
-import Link from 'next/link';
 
 export const metadata: Metadata = {
  title: 'Eventfomo',
