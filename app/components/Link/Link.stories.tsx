@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Link from './Link';
+import { Box } from '../Box/Box';
 
 export default {
  component: Link,
@@ -13,4 +14,24 @@ export const Story: StoryObj<typeof Link> = {
   href: '#',
   children: "I'm a link",
  },
+ argTypes: {
+  variant: {
+   options: ['ghost', 'primary', 'secondary'],
+   control: { type: 'radio' },
+  },
+  size: {
+   options: ['default', 'sm', 'lg'],
+   control: { type: 'radio' },
+  },
+  children: {
+   control: { type: 'text' },
+  },
+ },
+ decorators: [
+  (Story) => (
+   <Box margin={4}>
+    <Story />
+   </Box>
+  ),
+ ],
 };
