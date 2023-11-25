@@ -1,19 +1,19 @@
+import React from 'react';
 import {
  Card as UICard,
  CardContent,
  CardHeader,
  CardTitle,
 } from '@/components/ui/card';
-import React from 'react';
 
 interface CardProps {
- label?: string;
  title?: string;
  description?: string;
  subtext?: string;
+ label?: string;
 }
 
-const Card = ({ label, title, description, subtext }: CardProps) => {
+const Card = ({ title, description, subtext, label }: CardProps) => {
  return (
   <UICard className="bg-default">
    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
