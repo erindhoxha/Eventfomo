@@ -16,7 +16,7 @@ export default async function ChessPage() {
   <>
    <div className="mt-12 sm:mt-24 w-full">
     <div className="flex flex-col">
-     <H3>Chess events and tournaments</H3>
+     <H3>League of Legends events and tournaments</H3>
      <div className="flex mt-4 max-w-sm">
       <Button variant="default">Subscribe</Button>
       <SmallMutedText marginLeft="2" marginTop="0">

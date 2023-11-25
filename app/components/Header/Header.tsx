@@ -3,18 +3,21 @@
 import React from 'react';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import LinkComponent from '../Link/Link';
-import { NavBar } from '../NavigationMenu/NavigationMenu';
+import NavBar from '../NavigationMenu/NavigationMenu';
 import { cn } from '@/lib/utils';
 import {
- NavigationMenu,
+ NavigationMenu as UINavigationMenu,
  NavigationMenuContent,
  NavigationMenuItem,
  NavigationMenuLink,
  NavigationMenuList,
  NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
+import Link from 'next/link';
 
-const components: { title: string; href: string; game: string }[] = [
+export type Navigation = { title: string; href: string; game: string }[];
+
+const navigations: Navigation = [
  {
   title: 'Chess',
   href: '/games/chess',
@@ -45,9 +48,9 @@ const components: { title: string; href: string; game: string }[] = [
 const Header = () => {
  return (
   <nav className="w-full items-center justify-between font-mono text-sm flex">
-   <NavBar />
+   <NavBar navigations={navigations} />
    <div className="lg:hidden">
-    <NavigationMenu>
+    <UINavigationMenu>
      <NavigationMenuList>
       <LinkComponent size="none" variant="none" href="/">
        <p className="text-lg font-bold tracking-normal mr-4 border-b border-b-green-500">
@@ -60,19 +63,19 @@ const Header = () => {
        </NavigationMenuTrigger>
        <NavigationMenuContent className="bg-black">
         <ul className="grid min-w-[300px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-         {components.map((component) => (
+         {navigations.map((navigation) => (
           <ListItem
-           key={component.title}
-           title={component.title}
-           game={component.game}
-           href={component.href}
+           key={navigation.title}
+           title={navigation.title}
+           game={navigation.game}
+           href={navigation.href}
           />
          ))}
         </ul>
        </NavigationMenuContent>
       </NavigationMenuItem>
      </NavigationMenuList>
-    </NavigationMenu>
+    </UINavigationMenu>
    </div>
    <div className="flex items-center space-x-4 lg:space-x-6">
     <LinkComponent href="/login">Login</LinkComponent>
@@ -96,7 +99,7 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, ListItemProps>(
   return (
    <li>
     <NavigationMenuLink asChild>
-     <a
+     <Link
       ref={ref}
       className={cn(
        'flex select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
@@ -117,7 +120,7 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, ListItemProps>(
        />
       </div>
       <div className="text-sm font-medium leading-none">{title}</div>
-     </a>
+     </Link>
     </NavigationMenuLink>
    </li>
   );
