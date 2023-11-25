@@ -19,7 +19,11 @@ const NavBar = ({ navigations }: NavBarProps) => {
      </p>
     </LinkComponent>
     {navigations.map((navigation) => (
-     <LinkComponent variant="outline" href={navigation.href}>
+     <LinkComponent
+      key={navigation.game}
+      variant="outline"
+      href={navigation.href}
+     >
       <div className="mr-1">
        <img
         width="24"
