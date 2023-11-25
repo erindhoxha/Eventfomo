@@ -29,41 +29,59 @@ const ListItem = ({
  ends_at,
 }: Omit<MiniTableItemProps, 'id' | 'created_at'>) => {
  return (
-  <div className="flex items-center">
+  <div className="flex flex-row sm:items-center">
    <div className="space-y-1 flex items-center">
     <div className="mr-2">
      <img
       width="24"
-      style={{
-       minWidth: 36,
-       minHeight: 36,
-      }}
+      className="sm:min-w-[36px] sm:min-h-[36px] min-w-[24px] min-h-[24px]"
       height="24"
       src={`/img/icons/${game_id}.png`}
       alt={`${game_id} icon`}
      />
     </div>
-    <div>
+    <div className="max-w-[200px]">
      <p className="text-sm font-medium leading-none">{name}</p>
      <p className="text-sm text-muted-foreground">{description}</p>
     </div>
    </div>
-   <div className="flex flex-col ml-auto">
-    <p className="ml-auto text-sm">
-     {new Date(starts_at).toLocaleDateString('en', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-     })}
-    </p>
-    <p className="ml-auto text-sm">
-     {ends_at &&
-      new Date(ends_at).toLocaleDateString('en', {
+
+   <div className="flex ml-auto items-center">
+    <div className="mr-2">
+     <img
+      width="24"
+      className="sm:min-w-[24] sm:min-h-[24] min-w-[24px] min-h-[24px]"
+      height="24"
+      src={`/img/icons/youtube.png`}
+      alt={`Youtube link for ${game_id}`}
+     />
+    </div>
+    <div className="mr-2">
+     <img
+      width="24"
+      className="sm:min-w-[24] sm:min-h-[24] min-w-[24px] min-h-[24px]"
+      height="24"
+      src={`/img/icons/twitch.png`}
+      alt={`Youtube link for ${game_id}`}
+     />
+    </div>
+    <div className="flex flex-col ml-auto">
+     <p className="ml-auto text-sm">
+      {new Date(starts_at).toLocaleDateString('en', {
        month: 'short',
        day: 'numeric',
        year: 'numeric',
       })}
-    </p>
+     </p>
+     <p className="ml-auto text-sm">
+      {ends_at &&
+       new Date(ends_at).toLocaleDateString('en', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+       })}
+     </p>
+    </div>
    </div>
   </div>
  );
@@ -91,7 +109,10 @@ const MiniTable = ({ title, description, items }: MiniTableProps) => {
     </div>
     {(!items || items.length === 0) && (
      <div className="flex flex-col items-center justify-center">
-      <p className="text-sm text-muted-foreground">No ongoing events for now</p>
+      <p className="text-sm text-muted-foreground">
+       Couldn't find any events on this section for now. Please check again
+       later.
+      </p>
      </div>
     )}
    </CardContent>

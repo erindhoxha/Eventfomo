@@ -24,6 +24,14 @@ export default async function Home() {
   return endsAt && startsAt <= now && endsAt >= now;
  });
 
+ const eventsHappeningSoon = allEvents.data?.filter((event) => {
+  const now = new Date();
+  const startsAt = new Date(event.starts_at);
+  const endsAt = event.ends_at ? new Date(event.ends_at) : undefined;
+
+  return endsAt && startsAt > now && endsAt > now;
+ });
+
  return (
   <main className="flex flex-col items-start p-6 lg:p-6 container">
    <Header />
@@ -65,7 +73,7 @@ export default async function Home() {
     {/* Make this pop */}
     <div className="grid gap-4 md:grid-cols-2 mt-4">
      <MiniTable title="Recent Tournaments" items={allEvents.data} />
-     <MiniTable title="Upcoming Tournaments" items={allEvents.data} />
+     <MiniTable title="Upcoming Tournaments" items={eventsHappeningSoon} />
     </div>
     <div className="mt-12">
      <H3>Upcoming events</H3>
