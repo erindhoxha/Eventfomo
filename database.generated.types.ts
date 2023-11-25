@@ -9,86 +9,110 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      "all-ongoing-events": {
+      events: {
         Row: {
-          created_at: string
-          date: string
-          description: string
-          game: Database["public"]["Enums"]["Game"]
+          description: string | null
+          ends_at: string | null
+          game_id: string
           id: number
+          name: string
+          starts_at: string
+        }
+        Insert: {
+          description?: string | null
+          ends_at?: string | null
+          game_id: string
+          id?: number
+          name: string
+          starts_at: string
+        }
+        Update: {
+          description?: string | null
+          ends_at?: string | null
+          game_id?: string
+          id?: number
+          name?: string
+          starts_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "events_game_id_fkey"
+            columns: ["game_id"]
+            isOneToOne: false
+            referencedRelation: "games"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      games: {
+        Row: {
+          description: string | null
+          id: string
           name: string
         }
         Insert: {
-          created_at?: string
-          date: string
-          description: string
-          game: Database["public"]["Enums"]["Game"]
-          id?: number
+          description?: string | null
+          id: string
           name: string
         }
         Update: {
-          created_at?: string
-          date?: string
-          description?: string
-          game?: Database["public"]["Enums"]["Game"]
-          id?: number
+          description?: string | null
+          id?: string
           name?: string
         }
         Relationships: []
       }
-      "all-previous-events": {
+      user_event_subscriptions: {
         Row: {
-          created_at: string
-          date: string
-          description: string
-          game: Database["public"]["Enums"]["Game"]
+          event_id: number
           id: number
-          name: string
+          user_id: string
         }
         Insert: {
-          created_at?: string
-          date: string
-          description: string
-          game: Database["public"]["Enums"]["Game"]
+          event_id: number
           id?: number
-          name: string
+          user_id: string
         }
         Update: {
-          created_at?: string
-          date?: string
-          description?: string
-          game?: Database["public"]["Enums"]["Game"]
+          event_id?: number
           id?: number
-          name?: string
+          user_id?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "user_event_subscriptions_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          }
+        ]
       }
-      "all-upcoming-events": {
+      user_game_subscriptions: {
         Row: {
-          created_at: string
-          date: string
-          description: string
-          game: Database["public"]["Enums"]["Game"]
+          game_id: string
           id: number
-          name: string
+          user_id: string
         }
         Insert: {
-          created_at?: string
-          date: string
-          description: string
-          game: Database["public"]["Enums"]["Game"]
+          game_id: string
           id?: number
-          name: string
+          user_id: string
         }
         Update: {
-          created_at?: string
-          date?: string
-          description?: string
-          game?: Database["public"]["Enums"]["Game"]
+          game_id?: string
           id?: number
-          name?: string
+          user_id?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "user_game_subscriptions_game_id_fkey"
+            columns: ["game_id"]
+            isOneToOne: false
+            referencedRelation: "games"
+            referencedColumns: ["id"]
+          }
+        ]
       }
     }
     Views: {

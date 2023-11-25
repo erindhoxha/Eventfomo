@@ -7,12 +7,12 @@ import {
 } from '@/components/ui/card';
 
 interface MiniTableItemProps {
- created_at: string;
- date: string;
- description: string;
- game: 'dota' | 'lol' | 'wow' | 'chess' | 'csgo';
+ description: string | null;
+ ends_at: string | null;
+ game_id: string;
  id: number;
  name: string;
+ starts_at: string;
 }
 
 interface MiniTableProps {
@@ -23,9 +23,9 @@ interface MiniTableProps {
 
 const ListItem = ({
  name,
- game,
+ game_id,
  description,
- date,
+ starts_at,
 }: Omit<MiniTableItemProps, 'id' | 'created_at'>) => {
  return (
   <div className="flex items-center">
@@ -38,8 +38,8 @@ const ListItem = ({
        minHeight: 36,
       }}
       height="24"
-      src={`/img/icons/${game}.png`}
-      alt={`${game} icon`}
+      src={`/img/icons/${game_id}.png`}
+      alt={`${game_id} icon`}
      />
     </div>
     <div>
@@ -47,7 +47,7 @@ const ListItem = ({
      <p className="text-sm text-muted-foreground">{description}</p>
     </div>
    </div>
-   <p className="ml-auto text-sm">{date}</p>
+   <p className="ml-auto text-sm">{starts_at}</p>
   </div>
  );
 };
@@ -66,8 +66,9 @@ const MiniTable = ({ title, description, items }: MiniTableProps) => {
        key={item.id}
        name={item.name}
        description={item.description}
-       game={item.game}
-       date={item.date}
+       game_id={item.game_id}
+       starts_at={item.starts_at}
+       ends_at={item.ends_at}
       />
      ))}
     </div>

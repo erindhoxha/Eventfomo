@@ -9,16 +9,12 @@ import {
 import Card from './components/Card/Card';
 import MiniTable from './components/MiniTable/MiniTable';
 import { Box } from './components/Box/Box';
-import useAllUpcomingEvents from './hooks/useAllUpcomingEvents';
-import useAllOngoingEvents from './hooks/useAllOngoingEvents';
-import useAllPreviousEvents from './hooks/useAllPreviousEvents';
+import useEvents from './hooks/useEvents';
 import { DataTable } from './games/data-table';
 import { columns } from './games/columns';
 
 export default async function Home() {
- const upcomingEvents = await useAllUpcomingEvents();
- const ongoingEvents = await useAllOngoingEvents();
- const previousEvents = await useAllPreviousEvents();
+ const upcomingEvents = await useEvents();
 
  return (
   <main className="flex flex-col items-start p-6 lg:p-6 container">
@@ -57,17 +53,17 @@ export default async function Home() {
    </div>
 
    <div className="mt-12 sm:mt-24 w-full">
-    <MiniTable title="Popular ongoing events" items={ongoingEvents.data} />
+    <MiniTable title="Popular ongoing events" items={upcomingEvents.data} />
     {/* Make this pop */}
     <div className="grid gap-4 md:grid-cols-2 mt-4">
-     <MiniTable title="Recent Tournaments" items={previousEvents.data} />
+     <MiniTable title="Recent Tournaments" items={upcomingEvents.data} />
      <MiniTable title="Upcoming Tournaments" items={upcomingEvents.data} />
     </div>
     <div className="mt-12">
      <H3>Upcoming events</H3>
-     {previousEvents.data && (
+     {upcomingEvents.data && (
       <Box marginTop={4}>
-       <DataTable columns={columns} data={previousEvents.data} />
+       <DataTable columns={columns} data={upcomingEvents.data} />
       </Box>
      )}
     </div>
