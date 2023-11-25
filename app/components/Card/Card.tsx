@@ -9,28 +9,22 @@ import {
 interface CardProps {
  title?: string;
  description?: string;
- subtext?: string;
- label?: string;
+ subtitle?: string;
 }
 
-const Card = ({ title, description, subtext, label }: CardProps) => {
+const Card = ({ title, description, subtitle }: CardProps) => {
  return (
   <UICard className="bg-default">
-   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-    {title && (
-     <CardTitle className="text-sm font-medium">
-      {label && <div className="text-2xl font-bold">{label}</div>}
-      {title}
-     </CardTitle>
+   <CardHeader className="flex flex-column space-y-0 pb-2">
+    {subtitle && (
+     <CardTitle className="text-sm font-medium">{subtitle}</CardTitle>
     )}
    </CardHeader>
 
    <CardContent>
+    {title && <div className="text-2xl font-bold mb-1">{title}</div>}
     {description && (
-     <div className="text-2xl font-bold mb-1">{description}</div>
-    )}
-    {subtext && (
-     <p className="text-xs text-muted-foreground max-w-xs">{subtext}</p>
+     <p className="text-xs text-muted-foreground max-w-xs">{description}</p>
     )}
    </CardContent>
   </UICard>

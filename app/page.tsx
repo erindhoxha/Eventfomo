@@ -40,16 +40,16 @@ export default async function Home() {
     <H3>How it works</H3>
     <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-3 w-full mt-4">
      <Card
-      description="1. Subscribe"
-      subtext="Subscribe with your email address. Please note that we will send you emails 24 hours prior to a tournament, so you won't miss any game."
+      title="1. Subscribe"
+      description="Subscribe with your email address. Please note that we will send you emails 24 hours prior to a tournament, so you won't miss any game."
      />
      <Card
-      description="2. Select"
-      subtext="Select the games you want to follow or sync on your calendar. You can also choose all games, we will send you an email before a tournament happens."
+      title="2. Select"
+      description="Select the games you want to follow or sync on your calendar. You can also choose all games, we will send you an email before a tournament happens."
      />
      <Card
-      description="3. Sync"
-      subtext="Enjoy everyday emails that you can sync on your calendar. You can sync with your Google calendar, Outlook and Apple calendar."
+      title="3. Sync"
+      description="Enjoy everyday emails that you can sync on your calendar. You can sync with your Google calendar, Outlook and Apple calendar."
      />
     </div>
 
