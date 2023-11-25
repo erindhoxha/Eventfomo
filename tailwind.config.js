@@ -1,7 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
  darkMode: ['class'],
- content: ['app/**/*.{ts,tsx}', 'components/**/*.{ts,tsx}'],
+ content: [
+  'app/**/*.{ts,tsx}',
+  'app/**/*.stories.{ts,tsx}',
+  'components/**/*.{ts,tsx}',
+ ],
  theme: {
   container: {
    center: true,
@@ -15,7 +19,6 @@ module.exports = {
    serif: ['Merriweather', 'serif'],
   },
   backgroundImage: {
-   'footer-texture': "url('/img/footer-texture.png')",
    'hero-pattern': 'var(--background-image)',
   },
   extend: {
@@ -76,4 +79,8 @@ module.exports = {
   },
  },
  plugins: [require('tailwindcss-animate')],
+ safelist: [
+  // Retain all classes starting with...,
+  { pattern: /(m|mt|ml|mr|mb)-./ },
+ ],
 };

@@ -3,18 +3,20 @@ import { cn } from '@/lib/utils';
 import { VariantProps } from 'class-variance-authority';
 import Link from 'next/link';
 
+interface LinkProps {
+ href: string;
+ children: React.ReactNode;
+ variant?: VariantProps<typeof buttonVariants>['variant'];
+ size?: VariantProps<typeof buttonVariants>['size'];
+}
+
 const LinkComponent = ({
  href,
  children,
  variant,
  size,
  ...props
-}: {
- href: string;
- children: React.ReactNode;
- variant?: VariantProps<typeof buttonVariants>['variant'];
- size?: VariantProps<typeof buttonVariants>['size'];
-}) => {
+}: LinkProps) => {
  return (
   <Link
    href={href}

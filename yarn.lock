@@ -2511,6 +2511,20 @@
     "@storybook/types" "7.5.3"
     ts-dedent "^2.0.0"
 
+"@storybook/addon-themes@^7.5.3":
+  version "7.5.3"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-themes/-/addon-themes-7.5.3.tgz#9a60c604a3c22fbbd1badcdae85c81c338889f66"
+  integrity sha512-lwait7l3moPTaFQoG+7Pn5bL1a3tqAmXrMJkbluJn0DZyTXKKWVc1Cwak5o1UD44LLTBhql3BNLGi3BR0fB2fQ==
+  dependencies:
+    "@storybook/client-logger" "7.5.3"
+    "@storybook/components" "7.5.3"
+    "@storybook/core-events" "7.5.3"
+    "@storybook/manager-api" "7.5.3"
+    "@storybook/preview-api" "7.5.3"
+    "@storybook/theming" "7.5.3"
+    "@storybook/types" "7.5.3"
+    ts-dedent "^2.0.0"
+
 "@storybook/addon-toolbars@7.5.3":
   version "7.5.3"
   resolved "https://registry.yarnpkg.com/@storybook/addon-toolbars/-/addon-toolbars-7.5.3.tgz#754e818935f08f05d4e06aefafe40a1080c4d575"
@@ -2536,15 +2550,6 @@
     "@storybook/theming" "7.5.3"
     memoizerific "^1.11.3"
     prop-types "^15.7.2"
-
-"@storybook/addons@^7.5.3":
-  version "7.5.3"
-  resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-7.5.3.tgz#1a96c290a171ea97b255d9892e86f0e7c3517cd2"
-  integrity sha512-1JDndMZ/Pju4YJ4aXegeF0O6BVT19c+Gu7WOlsD0aHbmAsPK5qH9QvcpR04nby6VrVZYtBOEJhGsWtAytzLVZw==
-  dependencies:
-    "@storybook/manager-api" "7.5.3"
-    "@storybook/preview-api" "7.5.3"
-    "@storybook/types" "7.5.3"
 
 "@storybook/blocks@7.5.3", "@storybook/blocks@^7.5.3":
   version "7.5.3"
