@@ -78,7 +78,9 @@ const Header = () => {
     </UINavigationMenu>
    </div>
    <div className="flex items-center space-x-4 lg:space-x-6">
-    <LinkComponent href="/login">Login</LinkComponent>
+    <LinkComponent variant="outline" href="/login">
+     Login
+    </LinkComponent>
     <ThemeToggle />
    </div>
   </nav>

@@ -18,7 +18,9 @@ export default async function ChessPage() {
     <div className="flex flex-col">
      <H3>CS:GO 2 events and tournaments</H3>
      <div className="flex mt-4 max-w-sm">
-      <Button variant="default">Subscribe</Button>
+      <Button size="default" variant="default">
+       Subscribe
+      </Button>
       <SmallMutedText marginLeft="2" marginTop="0">
        We will send you emails about ongoing and upcoming Chess events.
       </SmallMutedText>
