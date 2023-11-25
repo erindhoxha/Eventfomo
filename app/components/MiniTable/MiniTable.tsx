@@ -18,7 +18,7 @@ interface MiniTableItemProps {
 interface MiniTableProps {
  title: string;
  description?: string;
- items: MiniTableItemProps[] | null;
+ items: MiniTableItemProps[] | null | undefined;
 }
 
 const ListItem = ({
@@ -48,7 +48,23 @@ const ListItem = ({
      <p className="text-sm text-muted-foreground">{description}</p>
     </div>
    </div>
-   <p className="ml-auto text-sm">{new Date(starts_at).toLocaleDateString()}</p>
+   <div className="flex flex-col ml-auto">
+    <p className="ml-auto text-sm">
+     {new Date(starts_at).toLocaleDateString('en', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+     })}
+    </p>
+    <p className="ml-auto text-sm">
+     {ends_at &&
+      new Date(ends_at).toLocaleDateString('en', {
+       month: 'short',
+       day: 'numeric',
+       year: 'numeric',
+      })}
+    </p>
+   </div>
   </div>
  );
 };

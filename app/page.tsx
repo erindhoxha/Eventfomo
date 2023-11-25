@@ -16,6 +16,14 @@ import { columns } from './games/columns';
 export default async function Home() {
  const allEvents = await useEvents();
 
+ const eventsHappeningNow = allEvents.data?.filter((event) => {
+  const now = new Date();
+  const startsAt = new Date(event.starts_at);
+  const endsAt = event.ends_at ? new Date(event.ends_at) : undefined;
+
+  return endsAt && startsAt <= now && endsAt >= now;
+ });
+
  return (
   <main className="flex flex-col items-start p-6 lg:p-6 container">
    <Header />
@@ -53,7 +61,7 @@ export default async function Home() {
    </div>
 
    <div className="mt-12 sm:mt-24 w-full">
-    <MiniTable title="Popular ongoing events" items={allEvents.data} />
+    <MiniTable title="Events happening right now" items={eventsHappeningNow} />
     {/* Make this pop */}
     <div className="grid gap-4 md:grid-cols-2 mt-4">
      <MiniTable title="Recent Tournaments" items={allEvents.data} />
