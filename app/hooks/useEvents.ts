@@ -1,7 +1,11 @@
 import supabase from '@/supabase';
 
-const useEvents = async () => {
- const events = await supabase.from('events').select('*').limit(10);
+interface EventsQuery {
+ limit?: number;
+}
+
+const useEvents = async ({ limit = 10 }: EventsQuery = {}) => {
+ const events = await supabase.from('events').select('*').limit(limit);
 
  if (!events) {
   throw new Error('No events found');

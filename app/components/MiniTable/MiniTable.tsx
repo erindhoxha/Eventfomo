@@ -26,6 +26,7 @@ const ListItem = ({
  game_id,
  description,
  starts_at,
+ ends_at,
 }: Omit<MiniTableItemProps, 'id' | 'created_at'>) => {
  return (
   <div className="flex items-center">
@@ -47,7 +48,7 @@ const ListItem = ({
      <p className="text-sm text-muted-foreground">{description}</p>
     </div>
    </div>
-   <p className="ml-auto text-sm">{starts_at}</p>
+   <p className="ml-auto text-sm">{new Date(starts_at).toLocaleDateString()}</p>
   </div>
  );
 };
