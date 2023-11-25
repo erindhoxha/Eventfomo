@@ -2,6 +2,7 @@ import MiniTable from '@/app/components/MiniTable/MiniTable';
 import { H3, SmallMutedText } from '@/app/components/Typography/Typography';
 import { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
+import useEvents from '@/app/hooks/useEvents';
 
 export const metadata: Metadata = {
  title: 'Chess games',
@@ -9,33 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default async function ChessPage() {
- async function getData() {
-  return [
-   {
-    id: '1234',
-    name: 'The international 2018',
-    game: 'chess',
-    description: 'EG vs LGD, best of 3',
-    eventDate: '10/07/2021',
-   },
-   {
-    id: '1234',
-    name: 'WoW Arena World Championship',
-    game: 'chess',
-    description: 'Method vs Cloud9, best of 5',
-    eventDate: '10/07/2021',
-   },
-   {
-    id: '1234',
-    name: 'League of Legends Poland Championship',
-    game: 'chess',
-    description: 'Liquid vs EG, best of 3',
-    eventDate: '10/07/2021',
-   },
-  ];
- }
-
- const items = await getData();
+ const allEvents = await useEvents();
 
  return (
   <>
@@ -51,12 +26,12 @@ export default async function ChessPage() {
     </div>
 
     <div className="mt-4">
-     <MiniTable title="Popular ongoing events" items={items} />
+     <MiniTable title="Popular ongoing events" items={allEvents.data} />
     </div>
     {/* Make this pop */}
     <div className="grid gap-4 md:grid-cols-2 mt-4">
-     <MiniTable title="Recent Tournaments" items={items} />
-     <MiniTable title="Upcoming Tournaments" items={items} />
+     <MiniTable title="Recent Tournaments" items={allEvents.data} />
+     <MiniTable title="Upcoming Tournaments" items={allEvents.data} />
     </div>
     {/* <div className="mt-12">
           <H3>Upcoming events</H3>

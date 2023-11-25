@@ -1,10 +1,15 @@
 import supabase from '@/supabase';
 
 const useEvents = async () => {
- const useEvents = await supabase.from('events').select('*');
+ const events = await supabase.from('events').select('*');
+
+ if (!events) {
+  throw new Error('No events found');
+ }
+
  return {
-  data: useEvents.data,
-  error: useEvents.error,
+  data: events.data,
+  error: events.error,
  };
 };
 

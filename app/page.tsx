@@ -14,7 +14,7 @@ import { DataTable } from './games/data-table';
 import { columns } from './games/columns';
 
 export default async function Home() {
- const upcomingEvents = await useEvents();
+ const allEvents = await useEvents();
 
  return (
   <main className="flex flex-col items-start p-6 lg:p-6 container">
@@ -53,36 +53,27 @@ export default async function Home() {
    </div>
 
    <div className="mt-12 sm:mt-24 w-full">
-    <MiniTable title="Popular ongoing events" items={upcomingEvents.data} />
+    <MiniTable title="Popular ongoing events" items={allEvents.data} />
     {/* Make this pop */}
     <div className="grid gap-4 md:grid-cols-2 mt-4">
-     <MiniTable title="Recent Tournaments" items={upcomingEvents.data} />
-     <MiniTable title="Upcoming Tournaments" items={upcomingEvents.data} />
+     <MiniTable title="Recent Tournaments" items={allEvents.data} />
+     <MiniTable title="Upcoming Tournaments" items={allEvents.data} />
     </div>
     <div className="mt-12">
      <H3>Upcoming events</H3>
-     {upcomingEvents.data && (
+     {allEvents.data && (
       <Box marginTop={4}>
-       <DataTable columns={columns} data={upcomingEvents.data} />
+       <DataTable columns={columns} data={allEvents.data} />
       </Box>
      )}
     </div>
     <Box marginTop={12}>
      <H3>Tournaments by game</H3>
      <div className="grid gap-4 md:grid-cols-2 mt-4">
-      <MiniTable title="Chess Tournaments" items={upcomingEvents.data} />
-      <MiniTable
-       title="League of Legends Tournaments"
-       items={upcomingEvents.data}
-      />
-      <MiniTable
-       title="League of Legends Tournaments"
-       items={upcomingEvents.data}
-      />
-      <MiniTable
-       title="League of Legends Tournaments"
-       items={upcomingEvents.data}
-      />
+      <MiniTable title="Chess Tournaments" items={allEvents.data} />
+      <MiniTable title="League of Legends Tournaments" items={allEvents.data} />
+      <MiniTable title="League of Legends Tournaments" items={allEvents.data} />
+      <MiniTable title="League of Legends Tournaments" items={allEvents.data} />
      </div>
     </Box>
    </div>
