@@ -40,47 +40,54 @@ const ListItem = ({
       alt={`${game_id} icon`}
      />
     </div>
-    <div className="max-w-[200px]">
-     <p className="text-sm font-medium leading-none">{name}</p>
-     <p className="text-sm text-muted-foreground">{description}</p>
+    <div className="flex flex-col">
+     <div>
+      <p className="text-sm font-medium leading-none">{name}</p>
+      <p className="text-sm text-muted-foreground">{description}</p>
+     </div>
+     <div className="flex mt-2">
+      <p className="text-sm text-muted-foreground">
+       {new Date(starts_at).toLocaleDateString('en', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+       })}
+       {' / '}
+       <span>
+        {ends_at &&
+         new Date(ends_at).toLocaleDateString('en', {
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric',
+         })}
+       </span>
+      </p>
+     </div>
     </div>
    </div>
 
    <div className="flex ml-auto items-center">
     <div className="mr-2">
-     <img
-      width="24"
-      className="sm:min-w-[24] sm:min-h-[24] min-w-[24px] min-h-[24px]"
-      height="24"
-      src={`/img/icons/youtube.png`}
-      alt={`Youtube link for ${game_id}`}
-     />
+     <a href="#" target="_blank" rel="noreferrer">
+      <img
+       width="24"
+       className="sm:min-w-[24] sm:min-h-[24] min-w-[24px] min-h-[24px]"
+       height="24"
+       src={`/img/icons/youtube.png`}
+       alt={`Youtube link for ${game_id}`}
+      />
+     </a>
     </div>
     <div className="mr-2">
-     <img
-      width="24"
-      className="sm:min-w-[24] sm:min-h-[24] min-w-[24px] min-h-[24px]"
-      height="24"
-      src={`/img/icons/twitch.png`}
-      alt={`Youtube link for ${game_id}`}
-     />
-    </div>
-    <div className="flex flex-col ml-auto">
-     <p className="ml-auto text-sm">
-      {new Date(starts_at).toLocaleDateString('en', {
-       month: 'short',
-       day: 'numeric',
-       year: 'numeric',
-      })}
-     </p>
-     <p className="ml-auto text-sm">
-      {ends_at &&
-       new Date(ends_at).toLocaleDateString('en', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-       })}
-     </p>
+     <a href="#" target="_blank" rel="noreferrer">
+      <img
+       width="24"
+       className="sm:min-w-[24] sm:min-h-[24] min-w-[24px] min-h-[24px]"
+       height="24"
+       src={`/img/icons/twitch.png`}
+       alt={`Youtube link for ${game_id}`}
+      />
+     </a>
     </div>
    </div>
   </div>
