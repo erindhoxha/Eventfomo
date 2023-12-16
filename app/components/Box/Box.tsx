@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { forwardRef } from 'react';
 import React from 'react';
 
@@ -16,17 +17,30 @@ interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Box = forwardRef<HTMLDivElement, BoxProps>(
  (
-  { children, margin, marginTop, marginLeft, marginRight, marginBottom },
+  {
+   children,
+   margin,
+   marginTop,
+   marginLeft,
+   marginRight,
+   marginBottom,
+   className,
+  },
   ref
  ) => {
   return (
    <div
     ref={ref}
-    className={`${margin && `m-${margin}`} ${marginTop && `mt-${marginTop}`} ${
-     marginLeft && `ml-${marginLeft}`
-    } ${marginRight && `mr-${marginRight}`} ${
-     marginBottom && `mb-${marginBottom}`
-    }`}
+    className={
+     (clsx({
+      [`m-${margin}`]: margin,
+      [`mt-${marginTop}`]: marginTop,
+      [`ml-${marginLeft}`]: marginLeft,
+      [`mr-${marginRight}`]: marginRight,
+      [`mb-${marginBottom}`]: marginBottom,
+     }),
+     className)
+    }
    >
     {children}
    </div>
