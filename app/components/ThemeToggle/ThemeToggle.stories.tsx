@@ -1,8 +1,11 @@
+import { Meta } from '@storybook/react';
 import ThemeToggle from './ThemeToggle';
 
-const Story = {
-  title: 'Components/ThemeToggle',
-  component: ThemeToggle,
-};
+export default {
+ component: ThemeToggle,
+} as Meta;
 
-export default Story;
+export const Story = {
+ title: 'Components/ThemeToggle',
+ component: ThemeToggle,
+};
