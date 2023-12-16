@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import clsx from 'clsx';
 import { forwardRef } from 'react';
 import React from 'react';
@@ -31,16 +32,16 @@ const Box = forwardRef<HTMLDivElement, BoxProps>(
   return (
    <div
     ref={ref}
-    className={
-     (clsx({
+    className={cn(
+     {
       [`m-${margin}`]: margin,
       [`mt-${marginTop}`]: marginTop,
       [`ml-${marginLeft}`]: marginLeft,
       [`mr-${marginRight}`]: marginRight,
       [`mb-${marginBottom}`]: marginBottom,
-     }),
-     className)
-    }
+     },
+     className
+    )}
    >
     {children}
    </div>
