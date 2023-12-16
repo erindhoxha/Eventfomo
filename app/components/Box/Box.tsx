@@ -1,7 +1,4 @@
-'use client';
-
 import { cn } from '@/lib/utils';
-import clsx from 'clsx';
 import { forwardRef } from 'react';
 import React from 'react';
 
