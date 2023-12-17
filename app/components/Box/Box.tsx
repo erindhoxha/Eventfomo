@@ -11,6 +11,15 @@ interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
  marginLeft?: MarginSpacing;
  marginRight?: MarginSpacing;
  marginBottom?: MarginSpacing;
+ marginX?: MarginSpacing;
+ marginY?: MarginSpacing;
+ padding?: MarginSpacing;
+ paddingTop?: MarginSpacing;
+ paddingLeft?: MarginSpacing;
+ paddingRight?: MarginSpacing;
+ paddingBottom?: MarginSpacing;
+ paddingX?: MarginSpacing;
+ paddingY?: MarginSpacing;
 }
 
 const Box = forwardRef<HTMLDivElement, BoxProps>(
@@ -22,6 +31,15 @@ const Box = forwardRef<HTMLDivElement, BoxProps>(
    marginLeft,
    marginRight,
    marginBottom,
+   marginX,
+   marginY,
+   padding,
+   paddingTop,
+   paddingLeft,
+   paddingRight,
+   paddingBottom,
+   paddingX,
+   paddingY,
    className,
   },
   ref
@@ -36,6 +54,15 @@ const Box = forwardRef<HTMLDivElement, BoxProps>(
       [`ml-${marginLeft}`]: marginLeft,
       [`mr-${marginRight}`]: marginRight,
       [`mb-${marginBottom}`]: marginBottom,
+      [`mx-${marginX}`]: marginX,
+      [`my-${marginY}`]: marginY,
+      [`p-${padding}`]: padding,
+      [`pt-${paddingTop}`]: paddingTop,
+      [`pl-${paddingLeft}`]: paddingLeft,
+      [`pr-${paddingRight}`]: paddingRight,
+      [`pb-${paddingBottom}`]: paddingBottom,
+      [`px-${paddingX}`]: paddingX,
+      [`py-${paddingY}`]: paddingY,
      },
      className
     )}

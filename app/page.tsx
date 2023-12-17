@@ -35,18 +35,21 @@ export default async function Home() {
  return (
   <main className="flex flex-col items-start p-6 lg:p-6 container">
    <Header />
-   <div className="flex flex-col lg:flex-row mt-[90px] w-full">
-    <div className="flex-col max-w-xs sm:max-w-lg lg:max-w-md text-sm flex">
+   <Box className="flex flex-col lg:flex-row mt-[90px] w-full">
+    <Box className="flex-col max-w-xs sm:max-w-lg lg:max-w-md text-sm flex">
      <H1>Your personal gaming calendar</H1>
      <Paragraph>
       The events you can't miss, the best content from your favourite games, in
       a daily email that you can sync on your calendar
      </Paragraph>
-    </div>
-    <div className="mt-8 lg:ml-12 flex flex-1 lg:justify-center w-full">
+    </Box>
+    <Box
+     marginTop={8}
+     className="lg:ml-12 flex flex-1 lg:justify-center w-full"
+    >
      <SubscribeForm />
-    </div>
-   </div>
+    </Box>
+   </Box>
 
    <div className="mt-12 sm:mt-24 w-full">
     <H3>How it works</H3>
@@ -68,31 +71,31 @@ export default async function Home() {
     <SmallMutedText marginTop="2">You can unsubscribe anytime.</SmallMutedText>
    </div>
 
-   <div className="mt-12 sm:mt-24 w-full">
+   <Box marginTop={12} className="sm:mt-24 w-full">
     <MiniTable title="Events happening right now" items={eventsHappeningNow} />
     {/* Make this pop */}
     <div className="grid gap-4 md:grid-cols-2 mt-4">
      <MiniTable title="Recent Tournaments" items={allEvents.data} />
      <MiniTable title="Upcoming Tournaments" items={eventsHappeningSoon} />
     </div>
-    <div className="mt-12">
+    <Box marginTop={12}>
      <H3>Upcoming events</H3>
      {allEvents.data && (
       <Box marginTop={4}>
        <DataTable columns={columns} data={allEvents.data} />
       </Box>
      )}
-    </div>
+    </Box>
     <Box marginTop={12}>
      <H3>Tournaments by game</H3>
-     <div className="grid gap-4 md:grid-cols-2 mt-4">
+     <Box marginTop={4} className="grid gap-4 md:grid-cols-2">
       <MiniTable title="Chess Tournaments" items={allEvents.data} />
       <MiniTable title="League of Legends Tournaments" items={allEvents.data} />
       <MiniTable title="League of Legends Tournaments" items={allEvents.data} />
       <MiniTable title="League of Legends Tournaments" items={allEvents.data} />
-     </div>
+     </Box>
     </Box>
-   </div>
+   </Box>
   </main>
  );
 }
