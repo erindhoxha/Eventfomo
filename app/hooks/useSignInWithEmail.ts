@@ -1,17 +1,20 @@
-import supabase from '@/supabase';
+import { Database } from '@/database.generated.types';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 async function useSignInWithEmail(email: string) {
- const { data, error } = await supabase.auth.signInWithOtp({
-  email: email,
-  options: {
-   emailRedirectTo: `${location.origin}`,
-  },
- });
+  const supabase = createClientComponentClient<Database>();
 
- return {
-  data,
-  error,
- };
+  const { data, error } = await supabase.auth.signInWithOtp({
+    email: email,
+    options: {
+      emailRedirectTo: `${location.origin}/auth/callback`,
+    },
+  });
+
+  return {
+    data,
+    error,
+  };
 }
 
 export default useSignInWithEmail;
