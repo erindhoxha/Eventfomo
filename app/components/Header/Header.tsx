@@ -14,6 +14,9 @@ import {
  NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
 import Link from 'next/link';
+import useUser from '@/app/hooks/useUser';
+import { Paragraph } from '../Typography/Typography';
+import supabase from '@/supabase';
 
 export type Navigation = { title: string; href: string; game: string }[];
 

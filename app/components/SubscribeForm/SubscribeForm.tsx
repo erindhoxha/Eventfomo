@@ -16,6 +16,7 @@ import { Input } from '@/components/ui/input';
 import { useForm } from 'react-hook-form';
 import { Icons } from '@/components/ui/icons';
 import useSignInWithEmail from '@/app/hooks/useSignInWithEmail';
+import { useState } from 'react';
 
 const formSchema = z.object({
  email: z.string().min(2, {
@@ -31,8 +32,11 @@ const Form = () => {
   },
  });
 
+ const [submitted, setSubmitted] = useState(false);
+
  async function onSubmit(values: z.infer<typeof formSchema>) {
   await useSignInWithEmail(values.email);
+  setSubmitted(true);
  }
 
  return (
@@ -63,12 +67,15 @@ const Form = () => {
            Subscribe
           </Button>
          </div>
+         {submitted && (
+          <div className="text-xs mt-2">Please check your mailbox.</div>
+         )}
         </div>
        </FormControl>
+       <FormMessage className="text-destructive" />
        <FormDescription className="max-w-[230px]">
         We will send you events on this email 24 hours before tournaments start.
        </FormDescription>
-       <FormMessage className="text-destructive" />
       </FormItem>
      )}
     />
