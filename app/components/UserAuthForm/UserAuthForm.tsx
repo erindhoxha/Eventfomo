@@ -12,13 +12,17 @@ interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
  const [isLoading, setIsLoading] = useState<boolean>(false);
+ const [error, setError] = useState(false);
+ const [submitted, setSubmitted] = useState(false);
  const [email, setEmail] = useState<string>('');
 
  async function onSubmit(event: SyntheticEvent) {
   event.preventDefault();
   setIsLoading(true);
 
-  await useSignInWithEmail(email);
+  await useSignInWithEmail(email).then((data) => {
+   data.error ? setError(true) : setSubmitted(true);
+  });
 
   setIsLoading(false);
  }
@@ -48,6 +52,16 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
       Submit
      </Button>
     </div>
+    {submitted && (
+     <div className="text-xs mt-2 text-center">
+      Please check your mailbox. You will receive a link to log in.
+     </div>
+    )}
+    {error && (
+     <div className="text-xs text-destructive mt-2 text-center">
+      Sorry, there's something wrong on our end. Please try again later.
+     </div>
+    )}
    </form>
    {/* <div className="relative">
         <div className="absolute inset-0 flex items-center">

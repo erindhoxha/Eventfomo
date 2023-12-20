@@ -7,7 +7,7 @@ export const metadata: Metadata = {
  description: 'Never miss out on any gaming events anymore.',
 };
 
-export default function RootLayout(props: any) {
+export default async function RootLayout(props: any) {
  return (
   <html lang="en" suppressHydrationWarning>
    <body className="bg-gradient-to-r bg-hero-pattern">
