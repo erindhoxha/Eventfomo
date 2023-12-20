@@ -3,6 +3,7 @@ import { H3, SmallMutedText } from '@/app/components/Typography/Typography';
 import { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import useEvents from '@/app/hooks/useEvents';
+import getSession from '@/app/hooks/getSession';
 
 export const metadata: Metadata = {
  title: 'Chess games',
@@ -11,6 +12,11 @@ export const metadata: Metadata = {
 
 export default async function ChessPage() {
  const allEvents = await useEvents();
+
+ const session = await getSession();
+ const user = session?.user;
+
+ // Check if the user has subscribed to the newsletter
 
  return (
   <>

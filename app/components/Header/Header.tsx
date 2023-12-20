@@ -95,7 +95,7 @@ const Header = ({ user }: { user: User | undefined }) => {
       method="post"
       action="/auth/signout"
      >
-      <Button type="submit" variant="ghost">
+      <Button type="submit" variant="outline">
        {isLoading && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />}
        Sign out
       </Button>
