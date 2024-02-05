@@ -11,17 +11,19 @@ export const metadata: Metadata = {
 export default async function RootLayout(props: any) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-gradient-to-r bg-hero-pattern">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {props.directoryListing}
-          {props.children}
-        </ThemeProvider>
-        <Footer />
+      <body className="bg-gradient-to-r bg-hero-pattern h-[100vh] max-h-[100vh]">
+        <div className="min-h-full flex flex-col">
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {props.directoryListing}
+            {props.children}
+          </ThemeProvider>
+          <Footer />
+        </div>
       </body>
     </html>
   );
