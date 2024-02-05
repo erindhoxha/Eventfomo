@@ -3,11 +3,10 @@ import getSession from "../hooks/getSession";
 import { Separator } from "@/components/ui/separator";
 import { SidebarNav } from "../components/SidebarNav/SidebarNav";
 import { Metadata } from "next";
-import { FormEvent } from "react";
 import ButtonWithRouter from "../components/ButtonWithRouter/ButtonWithRouter";
 
 export const metadata: Metadata = {
-  title: "Forms",
+  title: "Dashboard",
   description: "Advanced form example using react-hook-form and Zod.",
 };
 
@@ -44,7 +43,6 @@ export default async function DashboardLayout({
         <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
           <aside className="-mx-4 lg:w-1/5">
             <SidebarNav items={sidebarNavItems} />
-            <ButtonWithRouter />
           </aside>
           <div className="flex-1 lg:max-w-2xl">{children}</div>
         </div>

@@ -13,7 +13,7 @@ const ButtonWithRouter = () => {
 
   return (
     <form onSubmit={handleSignOut} method="post" action="/auth/signout">
-      <Button type="submit" className="mt-3 ml-4" variant="default">
+      <Button type="submit" variant="default">
         Sign out
       </Button>
     </form>
