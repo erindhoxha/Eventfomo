@@ -11,7 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default async function ChessPage() {
-  const allEvents = await useEvents();
+  const allEvents = await useEvents({
+    gameId: "chess",
+  });
 
   const session = await getSession();
   const user = session?.user;
