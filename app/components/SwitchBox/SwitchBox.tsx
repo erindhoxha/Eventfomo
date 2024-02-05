@@ -19,8 +19,6 @@ const SwitchBox = ({ gameId, gameName, checked, user }: SwitchBoxProps) => {
   const [loading, setLoading] = useState(false);
   const [checkedState, setChecked] = useState(checked);
 
-  console.log(checkedState, checked, gameId);
-
   const subscribe = async () => {
     if (loading) return;
     setLoading(true);

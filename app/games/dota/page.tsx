@@ -1,7 +1,5 @@
 import { Metadata } from "next";
 import GameTemplate from "@/app/templates/GameTemplate";
-import useSubscription from "@/app/hooks/useSubscription";
-import getSession from "@/app/hooks/getSession";
 
 export const metadata: Metadata = {
   title: "Dota 2 games",

@@ -6,6 +6,8 @@ import getSession from "../hooks/getSession";
 import useEvents from "../hooks/useEvents";
 import useSubscription from "../hooks/useSubscription";
 
+export const revalidate = 0;
+
 const GameTemplate = async ({
   title,
   description,
@@ -29,7 +31,7 @@ const GameTemplate = async ({
   const subscribed =
     subscription && subscription.data?.length && subscription.data?.length > 0;
 
-  console.log(subscribed);
+  console.log(subscription);
 
   return (
     <>
