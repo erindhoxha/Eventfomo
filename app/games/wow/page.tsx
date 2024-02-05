@@ -8,6 +8,8 @@ export const metadata: Metadata = {
 };
 
 export default async function WowPage() {
+  console.log("Running!");
+
   return (
     <GameTemplate
       gameName="World of Warcraft"
