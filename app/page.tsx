@@ -1,9 +1,7 @@
 import Header from "./components/Header/Header";
 import SubscribeForm from "./components/SubscribeForm/SubscribeForm";
 import {
-  H1,
   H3,
-  H4,
   Paragraph,
   SmallMutedText,
 } from "./components/Typography/Typography";
@@ -82,7 +80,6 @@ export default async function Home() {
           <SubscribeForm />
         </Box>
       </Box>
-
       <div className="mt-12 sm:mt-24 w-full">
         <H3>How it works</H3>
         <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-3 w-full mt-4">
@@ -99,18 +96,18 @@ export default async function Home() {
             description="Enjoy everyday emails that you can sync on your calendar. You can sync with your Google calendar, Outlook and Apple calendar."
           />
         </div>
-
         <SmallMutedText marginTop="2">
           You can unsubscribe anytime.
         </SmallMutedText>
       </div>
-
       <Box marginTop={12} className="sm:mt-24 w-full">
-        <MiniTable
-          title="Events happening right now"
-          items={eventsHappeningNow}
-        />
-        {/* Make this pop */}
+        <H3>All events</H3>
+        <Box marginTop={4}>
+          <MiniTable
+            title="Events happening right now"
+            items={eventsHappeningNow}
+          />
+        </Box>
         <div className="grid gap-4 md:grid-cols-2 mt-4">
           <MiniTable title="Recent Tournaments" items={eventsHappenedBefore} />
           <MiniTable title="Upcoming Tournaments" items={eventsHappeningSoon} />
