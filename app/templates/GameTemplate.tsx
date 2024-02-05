@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ButtonWithSubscribe from "../components/ButtonWithSubscribe/ButtonWithSubscribe";
 import MiniTable from "../components/MiniTable/MiniTable";
 import { H3, SmallMutedText } from "../components/Typography/Typography";
@@ -19,14 +20,16 @@ const GameTemplate = async ({
   const allEvents = await useEvents({
     gameId: gameId,
   });
-
   const session = await getSession();
   const user = session?.user;
-
   const subscription = await useSubscription({
     id: user?.id,
     game_id: gameId,
   });
+  const subscribed =
+    subscription && subscription.data?.length && subscription.data?.length > 0;
+
+  console.log(subscribed);
 
   return (
     <>
@@ -36,17 +39,20 @@ const GameTemplate = async ({
             <H3>{title}</H3>
             <SmallMutedText>{description}</SmallMutedText>
           </div>
-          <div className="flex mt-4 max-w-4xl">
-            <ButtonWithSubscribe
-              user={user}
-              gameId={gameId}
-              gameName={gameName}
-              subscribed={
-                subscription.data && subscription.data?.length > 0
-                  ? true
-                  : false
-              }
-            />
+          <div className="flex flex-col justify-end align-end mt-4 max-w-4xl">
+            {subscribed ? (
+              <p className="text-sm text-success text-right">Subscribed ✓</p>
+            ) : (
+              <p className="text-sm text-gray-500 text-right">
+                Subscribe to get updates!
+              </p>
+            )}
+            <Link
+              className="text-right text-sm underline"
+              href="/dashboard/subscriptions"
+            >
+              Manage your subscriptions
+            </Link>
           </div>
         </div>
         <div className="mt-4">

@@ -15,12 +15,12 @@ const subscriptionTypes = [
     name: "Dota 2",
   },
   {
-    id: "csgo",
-    name: "CS:GO 2",
-  },
-  {
     id: "lol",
     name: "League of Legends",
+  },
+  {
+    id: "csgo",
+    name: "CS:GO 2",
   },
   {
     id: "wow",

@@ -1,5 +1,6 @@
 import * as React from "react";
 import LinkComponent from "../Link/Link";
+import { usePathname } from "next/navigation";
 
 type NavBarProps = {
   navigations: {
@@ -18,23 +19,32 @@ const NavBar = ({ navigations }: NavBarProps) => {
             Eventfomo
           </p>
         </LinkComponent>
-        {navigations.map((navigation) => (
-          <LinkComponent key={navigation.game} href={navigation.href}>
-            <div className="mr-1">
-              <img
-                width="24"
-                style={{
-                  minWidth: 24,
-                  minHeight: 24,
-                }}
-                height="24"
-                src={`/img/icons/${navigation.game}.png`}
-                alt={`${navigation.game} icon`}
-              />
-            </div>
-            {navigation.title}
-          </LinkComponent>
-        ))}
+        {navigations.map((navigation) => {
+          const pathname = usePathname();
+          const isActive = pathname.startsWith(navigation.href);
+
+          return (
+            <LinkComponent
+              variant={isActive ? "secondary" : undefined}
+              key={navigation.game}
+              href={navigation.href}
+            >
+              <div className="mr-1">
+                <img
+                  width="24"
+                  style={{
+                    minWidth: 24,
+                    minHeight: 24,
+                  }}
+                  height="24"
+                  src={`/img/icons/${navigation.game}.png`}
+                  alt={`${navigation.game} icon`}
+                />
+              </div>
+              {navigation.title}
+            </LinkComponent>
+          );
+        })}
       </div>
     </>
   );

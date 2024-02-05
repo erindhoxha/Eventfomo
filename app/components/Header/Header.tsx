@@ -15,9 +15,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 import { User } from "@supabase/supabase-js";
-import { Icons } from "@/components/ui/icons";
-import { Button } from "@/components/ui/button";
-import supabase from "@/supabase";
+import { usePathname } from "next/navigation";
 
 export type Navigation = { title: string; href: string; game: string }[];
 
@@ -50,8 +48,6 @@ const navigations: Navigation = [
 ];
 
 const Header = ({ user }: { user: User | undefined }) => {
-  const [isLoading, setIsLoading] = useState(false);
-
   return (
     <nav className="w-full items-center justify-between font-mono text-sm flex">
       <NavBar navigations={navigations} />
@@ -69,14 +65,21 @@ const Header = ({ user }: { user: User | undefined }) => {
               </NavigationMenuTrigger>
               <NavigationMenuContent className="bg-black">
                 <ul className="grid min-w-[300px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                  {navigations.map((navigation) => (
-                    <ListItem
-                      key={navigation.title}
-                      title={navigation.title}
-                      game={navigation.game}
-                      href={navigation.href}
-                    />
-                  ))}
+                  {navigations.map((navigation) => {
+                    const pathname = usePathname();
+                    const isActive = pathname.startsWith(navigation.href);
+                    return (
+                      <ListItem
+                        key={navigation.title}
+                        title={navigation.title}
+                        game={navigation.game}
+                        href={navigation.href}
+                        className={
+                          isActive ? "bg-accent text-accent-foreground" : ""
+                        }
+                      />
+                    );
+                  })}
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
