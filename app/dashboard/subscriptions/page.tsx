@@ -57,6 +57,8 @@ const Page = async () => {
         {subscriptionTypes.map((item) => (
           <>
             <SwitchBox
+              key={item.id}
+              user={user}
               gameId={item.id}
               gameName={item.name}
               checked={isSubscribed(item.id)}
