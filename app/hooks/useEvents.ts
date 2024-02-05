@@ -1,20 +1,27 @@
-import supabase from '@/supabase';
+import supabase from "@/supabase";
 
 interface EventsQuery {
- limit?: number;
+  limit?: number;
+  gameId?: string;
 }
 
-const useEvents = async ({ limit = 10 }: EventsQuery = {}) => {
- const events = await supabase.from('events').select('*').limit(limit);
+const useEvents = async ({ limit = 10, gameId }: EventsQuery = {}) => {
+  let query = supabase.from("events").select("*").limit(limit);
 
- if (!events) {
-  throw new Error('No events found');
- }
+  if (gameId) {
+    query = query.eq("game_id", gameId);
+  }
 
- return {
-  data: events.data,
-  error: events.error,
- };
+  const { data, error } = await query;
+
+  if (!data) {
+    throw new Error("No events found");
+  }
+
+  return {
+    data,
+    error,
+  };
 };
 
 export default useEvents;
