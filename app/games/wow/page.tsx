@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default async function WowPage() {
   return (
     <GameTemplate
+      gameName="World of Warcraft"
       gameId="wow"
       title="World of Warcraft events and tournaments"
       description="We will send you emails about ongoing and upcoming World of Warcraft events."

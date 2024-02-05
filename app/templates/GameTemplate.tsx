@@ -9,10 +9,12 @@ const GameTemplate = async ({
   title,
   description,
   gameId,
+  gameName,
 }: {
   title: string;
   description: string;
   gameId: string;
+  gameName: string;
 }) => {
   const allEvents = await useEvents({
     gameId: gameId,
@@ -38,6 +40,7 @@ const GameTemplate = async ({
             <ButtonWithSubscribe
               user={user}
               gameId={gameId}
+              gameName={gameName}
               subscribed={
                 subscription.data && subscription.data?.length > 0
                   ? true

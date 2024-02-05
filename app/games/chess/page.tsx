@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 export default async function ChessPage() {
   return (
     <GameTemplate
+      gameName="Chess"
       gameId="chess"
       title="Chess events and tournaments"
       description="We will send you emails about ongoing and upcoming Chess events."

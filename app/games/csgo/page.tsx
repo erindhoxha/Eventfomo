@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 export default async function CSGOPage() {
   return (
     <GameTemplate
+      gameName="CS:GO 2"
       gameId="csgo"
       title="CS:GO 2 events and tournaments"
       description="We will send you emails about ongoing and upcoming CS:GO 2 events."

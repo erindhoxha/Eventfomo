@@ -1,11 +1,32 @@
+import SwitchBox from "@/app/components/SwitchBox/SwitchBox";
 import getSession from "@/app/hooks/getSession";
 import useSubscriptions from "@/app/hooks/useSubscriptions";
-import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { Switch } from "@/components/ui/switch";
-import Image from "next/image";
 import { redirect } from "next/navigation";
 import React from "react";
+
+const subscriptionTypes = [
+  {
+    id: "chess",
+    name: "Chess",
+  },
+  {
+    id: "dota",
+    name: "Dota 2",
+  },
+  {
+    id: "csgo",
+    name: "CS:GO 2",
+  },
+  {
+    id: "lol",
+    name: "League of Legends",
+  },
+  {
+    id: "wow",
+    name: "World of Warcraft",
+  },
+];
 
 const Page = async () => {
   const session = await getSession();
@@ -19,7 +40,9 @@ const Page = async () => {
     id: user.id,
   });
 
-  console.log(subscriptions);
+  const isSubscribed = (gameId: string) => {
+    return subscriptions.data?.some((sub) => sub.game_id === gameId) || false;
+  };
 
   return (
     <div>
@@ -31,86 +54,16 @@ const Page = async () => {
         </p>
       </div>
       <div>
-        <div className="flex items-center justify-between">
-          <Label
-            htmlFor="chess"
-            className="flex items-center w-full cursor-pointer py-4"
-          >
-            <Image
-              src={`/img/icons/chess.png`}
-              width={24}
-              height={24}
-              alt="Chess"
+        {subscriptionTypes.map((item) => (
+          <>
+            <SwitchBox
+              gameId={item.id}
+              gameName={item.name}
+              checked={isSubscribed(item.id)}
             />
-            <p className="text-sm ml-1">Chess</p>
-          </Label>
-          <Switch id="chess" />
-        </div>
-        <Separator />
-        <div className="flex items-center justify-between">
-          <Label
-            htmlFor="dota2"
-            className="flex items-center w-full cursor-pointer py-4"
-          >
-            <Image
-              src={`/img/icons/dota.png`}
-              width={24}
-              height={24}
-              alt="dota2"
-            />
-            <p className="text-sm ml-1">Dota 2</p>
-          </Label>
-          <Switch id="dota2" />
-        </div>
-        <Separator />
-        <div className="flex items-center justify-between">
-          <Label
-            htmlFor="lol"
-            className="flex items-center w-full cursor-pointer py-4"
-          >
-            <Image
-              src={`/img/icons/lol.png`}
-              width={24}
-              height={24}
-              alt="lol"
-            />
-            <p className="text-sm ml-1">League of Legends</p>
-          </Label>
-          <Switch id="lol" />
-        </div>
-        <Separator />
-        <div className="flex items-center justify-between">
-          <Label
-            htmlFor="csgo"
-            className="flex items-center w-full cursor-pointer py-4"
-          >
-            <Image
-              src={`/img/icons/csgo.png`}
-              width={24}
-              height={24}
-              alt="csgo"
-            />
-            <p className="text-sm ml-1">CS:GO</p>
-          </Label>
-          <Switch id="csgo" />
-        </div>
-        <Separator />
-        <div className="flex items-center justify-between">
-          <Label
-            htmlFor="wow"
-            className="flex items-center w-full cursor-pointer py-4"
-          >
-            <Image
-              src={`/img/icons/wow.png`}
-              width={24}
-              height={24}
-              alt="wow"
-            />
-            <p className="text-sm ml-1">World of Warcraft</p>
-          </Label>
-          <Switch id="wow" />
-        </div>
-        <Separator />
+            <Separator />
+          </>
+        ))}
       </div>
     </div>
   );

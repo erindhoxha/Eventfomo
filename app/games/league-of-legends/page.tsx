@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default async function LeagueGames() {
   return (
     <GameTemplate
+      gameName="League of Legends"
       gameId="lol"
       title="League of Legends events and tournaments"
       description="We will send you emails about ongoing and upcoming League of Legends events."
