@@ -6,16 +6,18 @@ import supabase from "@/supabase";
 const ButtonWithSubscribe = ({
   user,
   subscribed,
+  gameId,
 }: {
   user: any;
   subscribed: boolean;
+  gameId: string;
 }) => {
   const subscribe = async () => {
     const data =
       user?.id &&
       (await supabase
         .from("user_game_subscriptions")
-        .insert({ user_id: user?.id, game_id: "chess" }));
+        .insert({ user_id: user?.id, game_id: gameId }));
 
     if (data && data.error) {
       console.error("Error subscribing to chess events", data.error);

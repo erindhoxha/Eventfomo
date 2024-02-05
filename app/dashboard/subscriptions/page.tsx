@@ -1,10 +1,26 @@
+import getSession from "@/app/hooks/getSession";
+import useSubscriptions from "@/app/hooks/useSubscriptions";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import React from "react";
 
-const Page = () => {
+const Page = async () => {
+  const session = await getSession();
+  const user = session?.user;
+
+  if (!user) {
+    redirect("/");
+  }
+
+  const subscriptions = await useSubscriptions({
+    id: user.id,
+  });
+
+  console.log(subscriptions);
+
   return (
     <div>
       <div className="mb-2">
