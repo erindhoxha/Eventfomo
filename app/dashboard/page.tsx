@@ -16,7 +16,7 @@ export default async function DashboardPage() {
       <div>
         <h3 className="text-lg font-medium">Profile</h3>
 
-        <p className="text-sm text-white mt-4">Email address:</p>
+        <p className="text-sm mt-4">Email address:</p>
         <p className="text-sm text-muted-foreground">{user?.email}</p>
       </div>
       <Separator />

@@ -26,7 +26,7 @@ const Page = () => {
               height={24}
               alt="Chess"
             />
-            <p className="text-sm text-white ml-1">Chess</p>
+            <p className="text-sm ml-1">Chess</p>
           </Label>
           <Switch id="chess" />
         </div>
@@ -42,7 +42,7 @@ const Page = () => {
               height={24}
               alt="dota2"
             />
-            <p className="text-sm text-white ml-1">Dota 2</p>
+            <p className="text-sm ml-1">Dota 2</p>
           </Label>
           <Switch id="dota2" />
         </div>
@@ -58,7 +58,7 @@ const Page = () => {
               height={24}
               alt="lol"
             />
-            <p className="text-sm text-white ml-1">League of Legends</p>
+            <p className="text-sm ml-1">League of Legends</p>
           </Label>
           <Switch id="lol" />
         </div>
@@ -74,7 +74,7 @@ const Page = () => {
               height={24}
               alt="csgo"
             />
-            <p className="text-sm text-white ml-1">CS:GO</p>
+            <p className="text-sm ml-1">CS:GO</p>
           </Label>
           <Switch id="csgo" />
         </div>
@@ -90,7 +90,7 @@ const Page = () => {
               height={24}
               alt="wow"
             />
-            <p className="text-sm text-white ml-1">World of Warcraft</p>
+            <p className="text-sm ml-1">World of Warcraft</p>
           </Label>
           <Switch id="wow" />
         </div>
