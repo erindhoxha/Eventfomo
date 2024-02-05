@@ -1,11 +1,13 @@
 "use client";
 
+import getSession from "@/app/hooks/getSession";
 import useDeleteSubscription from "@/app/hooks/useDeleteSubscription";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import supabase from "@/supabase";
 import { User } from "@supabase/supabase-js";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 interface SwitchBoxProps {
@@ -15,35 +17,37 @@ interface SwitchBoxProps {
   user?: User;
 }
 
-const SwitchBox = ({ gameId, gameName, checked, user }: SwitchBoxProps) => {
-  const [loading, setLoading] = useState(false);
-  const [checkedState, setChecked] = useState(checked);
+const SwitchBox = ({ gameId, gameName, user, checked }: SwitchBoxProps) => {
+  const router = useRouter();
 
   const subscribe = async () => {
-    if (loading) return;
-    setLoading(true);
-    let data;
-    if (user?.id) {
-      if (checkedState) {
-        // If the user is already subscribed, delete the subscription
-        data = await useDeleteSubscription({
-          user_id: user.id,
+    if (checked) {
+      const data = await fetch(`/api/delete_subscription`, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
           game_id: gameId,
-        });
-      } else {
-        // If the user is not subscribed, insert the subscription
-        data = await supabase
-          .from("user_game_subscriptions")
-          .insert({ user_id: user.id, game_id: gameId });
-      }
-    }
-    setLoading(false);
-    if (data && data.error) {
-      console.error("Error updating subscription", data.error);
+          user_id: user?.id,
+        }),
+      });
+      router.refresh();
       return;
     }
-    setChecked(!checkedState);
+    const data = await fetch(`/api/subscribe`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        game_id: gameId,
+        user_id: user?.id,
+      }),
+    });
+    router.refresh();
   };
+
   return (
     <div className="flex items-center justify-between">
       <Label
@@ -60,7 +64,7 @@ const SwitchBox = ({ gameId, gameName, checked, user }: SwitchBoxProps) => {
       </Label>
       <Switch
         id={gameId}
-        checked={checkedState}
+        checked={checked}
         onClick={() => {
           subscribe();
         }}

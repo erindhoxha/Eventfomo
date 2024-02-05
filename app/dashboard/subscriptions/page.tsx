@@ -28,7 +28,7 @@ const subscriptionTypes = [
   },
 ];
 
-const Page = async () => {
+export default async function Page() {
   const session = await getSession();
   const user = session?.user;
 
@@ -69,6 +69,4 @@ const Page = async () => {
       </div>
     </div>
   );
-};
-
-export default Page;
+}
