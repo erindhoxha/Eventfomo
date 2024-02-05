@@ -4,6 +4,8 @@ import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import useEvents from "@/app/hooks/useEvents";
 import getSession from "@/app/hooks/getSession";
+import supabase from "@/supabase";
+import ButtonWithSubscribe from "@/app/components/ButtonWithSubscribe/ButtonWithSubscribe";
 
 export const metadata: Metadata = {
   title: "Chess games",
@@ -18,6 +20,19 @@ export default async function ChessPage() {
   const session = await getSession();
   const user = session?.user;
 
+  const { data, error } = await supabase
+    .from("user_game_subscriptions")
+    .select("game_id")
+    .eq("user_id", user?.id || "")
+    .eq("game_id", "chess");
+
+  if (error) {
+    console.error("Error fetching subscription:", error);
+    return false;
+  }
+
+  console.log(data);
+
   return (
     <>
       <div className="mt-12 sm:mt-24 w-full">
@@ -29,11 +44,7 @@ export default async function ChessPage() {
             </SmallMutedText>
           </div>
           <div className="flex mt-4 max-w-4xl">
-            <Button variant="default" className="w-full md:w-auto">
-              {user?.action_link === "Subscribed"
-                ? "Subscribed ✓"
-                : "Subscribe to Chess events"}
-            </Button>
+            <ButtonWithSubscribe user={user} subscribed={data.length > 0} />
           </div>
         </div>
         <div className="mt-4">

@@ -3,6 +3,8 @@ import { H3, SmallMutedText } from "@/app/components/Typography/Typography";
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import useEvents from "@/app/hooks/useEvents";
+import getSession from "@/app/hooks/getSession";
+import supabase from "@/supabase";
 
 export const metadata: Metadata = {
   title: "Dota 2 games",
@@ -13,6 +15,22 @@ export default async function DotaPage() {
   const allEvents = await useEvents({
     gameId: "dota",
   });
+
+  const session = await getSession();
+  const user = session?.user;
+
+  const { data, error } = await supabase
+    .from("user_game_subscriptions")
+    .select("game_id")
+    .eq("user_id", user?.id || "")
+    .eq("game_id", "dota");
+
+  if (error) {
+    console.error("Error fetching subscription:", error);
+    return false;
+  }
+
+  console.log(data);
 
   return (
     <>
