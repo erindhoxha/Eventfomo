@@ -5,6 +5,9 @@ import { H3, SmallMutedText } from "../components/Typography/Typography";
 import getSession from "../hooks/getSession";
 import useEvents from "../hooks/useEvents";
 import useSubscription from "../hooks/useSubscription";
+import getPreviousEvents from "../utils/getPreviousEvents";
+import getFutureEvents from "../utils/getFutureEvents";
+import getCurrentEvents from "../utils/getCurrentEvents";
 
 const GameTemplate = async ({
   title,
@@ -20,6 +23,10 @@ const GameTemplate = async ({
   });
   const session = await getSession();
   const userId = session?.user?.id;
+
+  const previousEvents = getPreviousEvents(allEvents.data);
+  const futureEvents = getFutureEvents(allEvents.data);
+  const currentEvents = getCurrentEvents(allEvents.data);
 
   const subscription = await useSubscription({
     id: userId,
@@ -55,11 +62,11 @@ const GameTemplate = async ({
           </div>
         </div>
         <div className="mt-4">
-          <MiniTable title="Popular ongoing events" items={allEvents.data} />
+          <MiniTable title="Popular ongoing events" items={currentEvents} />
         </div>
         <div className="grid gap-4 md:grid-cols-2 mt-4">
-          <MiniTable title="Recent Tournaments" items={allEvents.data} />
-          <MiniTable title="Upcoming Tournaments" items={allEvents.data} />
+          <MiniTable title="Recent Tournaments" items={previousEvents} />
+          <MiniTable title="Upcoming Tournaments" items={futureEvents} />
         </div>
       </div>
     </>

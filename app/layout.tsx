@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/context/theme-provider";
 import Footer from "./components/Footer/Footer";
 
 export const metadata: Metadata = {
-  title: "Eventfomo",
+  title: "Eventfomo - Gaming Events Tracker",
   description: "Never miss out on any gaming events anymore.",
 };
 

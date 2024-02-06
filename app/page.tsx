@@ -15,16 +15,12 @@ import getSession from "./hooks/getSession";
 import Animated from "./components/AnimatedHeader/AnimatedHeader";
 import getCurrentEvents from "./utils/getCurrentEvents";
 import getFutureEvents from "./utils/getFutureEvents";
+import getPreviousEvents from "./utils/getPreviousEvents";
 
 export default async function Home() {
   const allEvents = await useEvents();
 
-  const eventsHappenedBefore = allEvents.data?.filter((event) => {
-    const now = new Date();
-    const endsAt = event.ends_at ? new Date(event.ends_at) : undefined;
-    return endsAt && endsAt < now;
-  });
-
+  const eventsHappenedBefore = getPreviousEvents(allEvents.data);
   const eventsHappeningNow = getCurrentEvents(allEvents.data);
   const eventsHappeningSoon = getFutureEvents(allEvents.data);
 
