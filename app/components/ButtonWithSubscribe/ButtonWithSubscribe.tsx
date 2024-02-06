@@ -1,5 +1,7 @@
 "use client";
 
+import useDeleteSubscription from "@/app/hooks/useDeleteSubscription";
+import useSubscribe from "@/app/hooks/useSubscribe";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
@@ -50,34 +52,23 @@ const ButtonWithSubscribe = ({
     setError("");
     try {
       let response;
-      if (subscribed) {
-        response = await fetch(`/api/delete_subscription`, {
-          method: "post",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            game_id: gameId,
-            user_id: userId,
-          }),
-        });
-      } else {
-        response = await fetch(`/api/subscribe`, {
-          method: "post",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            game_id: gameId,
-            user_id: userId,
-          }),
-        });
+      if (userId) {
+        if (subscribed) {
+          response = await useDeleteSubscription({
+            gameId,
+            userId,
+          });
+        } else {
+          response = await useSubscribe({
+            gameId,
+            userId,
+          });
+        }
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        router.refresh();
       }
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      router.refresh();
     } catch (err) {
       setError("Something went wrong on our end. Please try again.");
       setActive(subscribed);

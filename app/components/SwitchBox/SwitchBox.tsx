@@ -1,14 +1,12 @@
 "use client";
 
-import getSession from "@/app/hooks/getSession";
 import useDeleteSubscription from "@/app/hooks/useDeleteSubscription";
+import useSubscribe from "@/app/hooks/useSubscribe";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import supabase from "@/supabase";
 import { User } from "@supabase/supabase-js";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 interface SwitchBoxProps {
   gameId: string;
@@ -21,31 +19,21 @@ const SwitchBox = ({ gameId, gameName, user, checked }: SwitchBoxProps) => {
   const router = useRouter();
 
   const subscribe = async () => {
-    if (checked) {
-      await fetch(`/api/delete_subscription`, {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          game_id: gameId,
-          user_id: user?.id,
-        }),
+    if (user?.id) {
+      if (checked) {
+        await useDeleteSubscription({
+          gameId,
+          userId: user.id,
+        });
+        router.refresh();
+        return;
+      }
+      await useSubscribe({
+        gameId,
+        userId: user.id,
       });
       router.refresh();
-      return;
     }
-    await fetch(`/api/subscribe`, {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        game_id: gameId,
-        user_id: user?.id,
-      }),
-    });
-    router.refresh();
   };
 
   return (

@@ -1,11 +1,11 @@
-const useDeleteSubscription = async ({
+const useSubscribe = async ({
   gameId,
   userId,
 }: {
   gameId: string;
   userId: string;
 }) => {
-  const response = await fetch(`/api/delete_subscription`, {
+  const response = await fetch(`/api/subscribe`, {
     method: "post",
     headers: {
       "Content-Type": "application/json",
@@ -18,4 +18,4 @@ const useDeleteSubscription = async ({
   return response;
 };
 
-export default useDeleteSubscription;
+export default useSubscribe;
