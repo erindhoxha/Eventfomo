@@ -18,6 +18,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
 
   async function onSubmit(event: SyntheticEvent) {
     event.preventDefault();
+    setError(false);
     setIsLoading(true);
 
     await useSignInWithEmail(email).then((data) => {

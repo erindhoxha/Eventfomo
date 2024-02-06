@@ -50,7 +50,7 @@ const GameTemplate = async ({
           <div className="flex flex-col justify-end align-end mt-4 max-w-4xl">
             <Link
               className="md:text-right text-sm underline mb-2"
-              href="/dashboard/subscriptions"
+              href={userId ? "/dashboard/subscriptions" : "/login"}
             >
               Manage your subscriptions
             </Link>

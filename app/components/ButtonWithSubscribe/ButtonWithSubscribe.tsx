@@ -46,12 +46,13 @@ const ButtonWithSubscribe = ({
   }, [supabase, router]);
 
   const subscribe = async () => {
-    setLoading(true);
-    setActive(!active);
-    setError("");
+    if (!userId) router.push("/login");
     try {
       let response;
       if (userId) {
+        setLoading(true);
+        setActive(!active);
+        setError("");
         if (subscribed) {
           response = await useDeleteSubscription({
             gameId,
