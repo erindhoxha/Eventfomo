@@ -13,6 +13,8 @@ import { DataTable } from "./games/data-table";
 import { columns } from "./games/columns";
 import getSession from "./hooks/getSession";
 import Animated from "./components/AnimatedHeader/AnimatedHeader";
+import getCurrentEvents from "./utils/getCurrentEvents";
+import getFutureEvents from "./utils/getFutureEvents";
 
 export default async function Home() {
   const allEvents = await useEvents();
@@ -23,21 +25,8 @@ export default async function Home() {
     return endsAt && endsAt < now;
   });
 
-  const eventsHappeningNow = allEvents.data?.filter((event) => {
-    const now = new Date();
-    const startsAt = new Date(event.starts_at);
-    const endsAt = event.ends_at ? new Date(event.ends_at) : undefined;
-
-    return endsAt && startsAt <= now && endsAt >= now;
-  });
-
-  const eventsHappeningSoon = allEvents.data?.filter((event) => {
-    const now = new Date();
-    const startsAt = new Date(event.starts_at);
-    const endsAt = event.ends_at ? new Date(event.ends_at) : undefined;
-
-    return endsAt && startsAt > now && endsAt > now;
-  });
+  const eventsHappeningNow = getCurrentEvents(allEvents.data);
+  const eventsHappeningSoon = getFutureEvents(allEvents.data);
 
   const dotaEvents = await useEvents({
     gameId: "dota",

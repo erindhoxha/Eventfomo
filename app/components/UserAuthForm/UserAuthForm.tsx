@@ -1,69 +1,71 @@
-'use client';
+"use client";
 
-import { cn } from '@/lib/utils';
-import { Icons } from '@/components/ui/icons';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
-import { SyntheticEvent, useState } from 'react';
-import useSignInWithEmail from '@/app/hooks/useSignInWithEmail';
+import { cn } from "@/lib/utils";
+import { Icons } from "@/components/ui/icons";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { SyntheticEvent, useState } from "react";
+import useSignInWithEmail from "@/app/hooks/useSignInWithEmail";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
- const [isLoading, setIsLoading] = useState<boolean>(false);
- const [error, setError] = useState(false);
- const [submitted, setSubmitted] = useState(false);
- const [email, setEmail] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [email, setEmail] = useState<string>("");
 
- async function onSubmit(event: SyntheticEvent) {
-  event.preventDefault();
-  setIsLoading(true);
+  async function onSubmit(event: SyntheticEvent) {
+    event.preventDefault();
+    setIsLoading(true);
 
-  await useSignInWithEmail(email).then((data) => {
-   data.error ? setError(true) : setSubmitted(true);
-  });
+    await useSignInWithEmail(email).then((data) => {
+      data.error ? setError(true) : setSubmitted(true);
+    });
 
-  setIsLoading(false);
- }
+    setIsLoading(false);
+  }
 
- return (
-  <div className={cn('grid gap-6', className)} {...props}>
-   <form onSubmit={onSubmit}>
-    <div className="grid gap-2">
-     <div className="grid gap-1">
-      <Label className="sr-only" htmlFor="email">
-       Email
-      </Label>
-      <Input
-       id="email"
-       placeholder="name@example.com"
-       type="email"
-       autoCapitalize="none"
-       autoComplete="email"
-       autoCorrect="off"
-       disabled={isLoading}
-       value={email}
-       onChange={(event) => setEmail(event.target.value)}
-      />
-     </div>
-     <Button disabled={isLoading}>
-      {isLoading && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />}
-      Submit
-     </Button>
-    </div>
-    {submitted && (
-     <div className="text-xs mt-2 text-center">
-      Please check your mailbox. You will receive a link to log in.
-     </div>
-    )}
-    {error && (
-     <div className="text-xs text-destructive mt-2 text-center">
-      Sorry, there's something wrong on our end. Please try again later.
-     </div>
-    )}
-   </form>
-   {/* <div className="relative">
+  return (
+    <div className={cn("grid gap-6", className)} {...props}>
+      <form onSubmit={onSubmit}>
+        <div className="grid gap-2">
+          <div className="grid gap-1">
+            <Label className="sr-only" htmlFor="email">
+              Email
+            </Label>
+            <Input
+              id="email"
+              placeholder="name@example.com"
+              type="email"
+              autoCapitalize="none"
+              autoComplete="email"
+              autoCorrect="off"
+              disabled={isLoading}
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+          </div>
+          <Button disabled={isLoading}>
+            {isLoading && (
+              <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+            )}
+            Submit
+          </Button>
+        </div>
+        {submitted && (
+          <div className="text-xs text-muted-foreground mt-2 text-center">
+            Please check your mailbox. You will receive a link to log in.
+          </div>
+        )}
+        {error && (
+          <div className="text-xs text-destructive mt-2 text-center">
+            Sorry, there's something wrong on our end. Please try again later.
+          </div>
+        )}
+      </form>
+      {/* <div className="relative">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />
         </div>
@@ -73,7 +75,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           </span>
         </div>
       </div> */}
-   {/* <Button variant="outline" type="button" disabled={isLoading}>
+      {/* <Button variant="outline" type="button" disabled={isLoading}>
         {isLoading ? (
           <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
         ) : (
@@ -81,6 +83,6 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         )}{' '}
         Github
       </Button> */}
-  </div>
- );
+    </div>
+  );
 }

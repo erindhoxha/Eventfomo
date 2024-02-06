@@ -35,7 +35,6 @@ const ButtonWithSubscribe = ({
           table: "user_game_subscriptions",
         },
         (data) => {
-          console.log("Change received!", data);
           router.refresh();
         },
       )

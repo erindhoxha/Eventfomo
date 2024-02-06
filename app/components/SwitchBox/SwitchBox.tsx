@@ -7,6 +7,7 @@ import { Switch } from "@/components/ui/switch";
 import { User } from "@supabase/supabase-js";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 interface SwitchBoxProps {
   gameId: string;
@@ -18,46 +19,62 @@ interface SwitchBoxProps {
 const SwitchBox = ({ gameId, gameName, user, checked }: SwitchBoxProps) => {
   const router = useRouter();
 
+  const [active, setActive] = useState(checked);
+  const [error, setError] = useState("");
+
   const subscribe = async () => {
-    if (user?.id) {
-      if (checked) {
-        await useDeleteSubscription({
-          gameId,
-          userId: user.id,
-        });
-        router.refresh();
-        return;
+    setError("");
+    setActive(!active);
+    try {
+      let response;
+      if (user?.id) {
+        if (checked) {
+          response = await useDeleteSubscription({
+            gameId,
+            userId: user.id,
+          });
+        } else {
+          response = await useSubscribe({
+            gameId,
+            userId: user.id,
+          });
+        }
       }
-      await useSubscribe({
-        gameId,
-        userId: user.id,
-      });
+      if (!response?.ok) {
+        throw new Error(`HTTP error! status: ${response?.status}`);
+      }
       router.refresh();
+    } catch (err) {
+      setError("Something went wrong on our end. Please try again.");
+      setActive(checked);
     }
   };
 
   return (
-    <div className="flex items-center justify-between">
-      <Label
-        htmlFor={gameId}
-        className="flex items-center w-full cursor-pointer py-4"
-      >
-        <Image
-          src={`/img/icons/${gameId}.png`}
-          width={24}
-          height={24}
-          alt={gameName}
+    <>
+      {error && <p className="text-red-500 text-sm mt-3">{error}</p>}
+      <div className="flex items-center justify-between">
+        <Label
+          htmlFor={gameId}
+          className="flex items-center w-full cursor-pointer py-4"
+        >
+          <Image
+            src={`/img/icons/${gameId}.png`}
+            width={24}
+            height={24}
+            alt={gameName}
+          />
+          <p className="text-sm ml-1">{gameName}</p>
+        </Label>
+        <Switch
+          id={gameId}
+          checked={active}
+          onClick={() => {
+            subscribe();
+          }}
         />
-        <p className="text-sm ml-1">{gameName}</p>
-      </Label>
-      <Switch
-        id={gameId}
-        checked={checked}
-        onClick={() => {
-          subscribe();
-        }}
-      />
-    </div>
+      </div>
+    </>
   );
 };
 
