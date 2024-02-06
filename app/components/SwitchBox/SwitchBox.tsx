@@ -22,7 +22,7 @@ const SwitchBox = ({ gameId, gameName, user, checked }: SwitchBoxProps) => {
 
   const subscribe = async () => {
     if (checked) {
-      const data = await fetch(`/api/delete_subscription`, {
+      await fetch(`/api/delete_subscription`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -35,7 +35,7 @@ const SwitchBox = ({ gameId, gameName, user, checked }: SwitchBoxProps) => {
       router.refresh();
       return;
     }
-    const data = await fetch(`/api/subscribe`, {
+    await fetch(`/api/subscribe`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

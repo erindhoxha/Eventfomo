@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import GameTemplate from "@/app/templates/GameTemplate";
+import getSession from "@/app/hooks/getSession";
 
 export const metadata: Metadata = {
   title: "Chess games",
@@ -9,7 +10,6 @@ export const metadata: Metadata = {
 export default async function ChessPage() {
   return (
     <GameTemplate
-      gameName="Chess"
       gameId="chess"
       title="Chess events and tournaments"
       description="We will send you emails about ongoing and upcoming Chess events."
