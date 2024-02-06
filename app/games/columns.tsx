@@ -36,8 +36,8 @@ export const columns: ColumnDef<Games>[] = [
         </Button>
       );
     },
-    cell: (asd) => {
-      const date = asd.getValue() as string;
+    cell: (c) => {
+      const date = c.getValue() as string;
       return format(new Date(date || ""), "dd/MM/yyyy");
     },
   },
@@ -57,8 +57,8 @@ export const columns: ColumnDef<Games>[] = [
         </Button>
       );
     },
-    cell: (asd) => {
-      const date = asd.getValue() as string;
+    cell: (c) => {
+      const date = c.getValue() as string;
       return format(new Date(date || ""), "dd/MM/yyyy");
     },
   },
