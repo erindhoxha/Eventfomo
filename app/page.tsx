@@ -44,6 +44,11 @@ export default async function Home() {
     limit: 5,
   });
 
+  const wowEvents = await useEvents({
+    gameId: "wow",
+    limit: 5,
+  });
+
   const session = await getSession();
   const user = session?.user;
 
@@ -108,12 +113,30 @@ export default async function Home() {
         <Box marginTop={12}>
           <H3>Tournaments by game</H3>
           <Box marginTop={4} className="grid gap-4 md:grid-cols-2">
-            <MiniTable title="Chess Tournaments" items={chessEvents.data} />
-            <MiniTable title="Dota 2 Tournaments" items={dotaEvents.data} />
-            <MiniTable title="CS:GO 2 Tournaments" items={csgoEvents.data} />
             <MiniTable
+              gameId="chess"
+              title="Chess Tournaments"
+              items={chessEvents.data}
+            />
+            <MiniTable
+              gameId="dota"
+              title="Dota 2 Tournaments"
+              items={dotaEvents.data}
+            />
+            <MiniTable
+              gameId="csgo"
+              title="CS:GO 2 Tournaments"
+              items={csgoEvents.data}
+            />
+            <MiniTable
+              gameId="lol"
               title="League of Legends Tournaments"
               items={lolEvents.data}
+            />
+            <MiniTable
+              gameId="wow"
+              title="World of Warcraft Tournaments"
+              items={wowEvents.data}
             />
           </Box>
         </Box>

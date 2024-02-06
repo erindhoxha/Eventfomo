@@ -32,7 +32,7 @@ const navigations: Navigation = [
   },
   {
     title: "League of Legends",
-    href: "/games/league-of-legends",
+    href: "/games/lol",
     game: "lol",
   },
   {

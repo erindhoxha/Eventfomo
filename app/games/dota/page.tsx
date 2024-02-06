@@ -10,7 +10,7 @@ export default async function DotaPage() {
   return (
     <GameTemplate
       gameId="dota"
-      title={`Dota 2 events and tournament`}
+      title={`Dota 2 events and tournaments`}
       description="We will send you emails about ongoing and upcoming Dota 2 events."
     />
   );

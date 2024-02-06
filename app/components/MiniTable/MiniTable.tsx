@@ -5,6 +5,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Link from "next/link";
+import LinkComponent from "../Link/Link";
 
 interface MiniTableItemProps {
   description: string | null;
@@ -19,6 +21,7 @@ interface MiniTableProps {
   title: string;
   description?: string;
   items: MiniTableItemProps[] | null | undefined;
+  gameId?: string;
 }
 
 const ListItem = ({
@@ -42,12 +45,12 @@ const ListItem = ({
         </div>
         <div className="flex flex-col">
           <div>
-            <p className="text-sm font-medium leading-none">{name}</p>
+            <p className="text-sm font-bold leading-none">{name}</p>
             <p className="text-xs lg:text-sm text-muted-foreground">
               {description}
             </p>
           </div>
-          <div className="flex mt-2">
+          <div className="flex mt-1">
             <p className="text-xs lg:text-sm text-muted-foreground">
               {new Date(starts_at).toLocaleDateString("en", {
                 month: "short",
@@ -96,12 +99,27 @@ const ListItem = ({
   );
 };
 
-const MiniTable = ({ title, description, items }: MiniTableProps) => {
+const MiniTable = ({ title, description, items, gameId }: MiniTableProps) => {
   return (
     <Card className="col-span-1 bg-dark">
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <div className="flex flex-row">
+          <div className="flex items-center">
+            <CardTitle>{title}</CardTitle>
+            {description && (
+              <CardDescription className="ml-2">{description}</CardDescription>
+            )}
+          </div>
+          {gameId ? (
+            <LinkComponent
+              href={`/games/${gameId}`}
+              className="ml-auto"
+              variant="link"
+            >
+              <p className="text-sm text-muted-foreground">View more</p>
+            </LinkComponent>
+          ) : null}
+        </div>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
