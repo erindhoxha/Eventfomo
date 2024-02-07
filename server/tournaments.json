@@ -1,197 +1,308 @@
 [
   {
-    "tier": "Tier 1 Tournaments",
-    "title": "Riyadh Masters",
-    "date": "Jul 1, 2024"
+    "tier": "Tier 1",
+    "title": "Riyadh Masters 2024",
+    "date": "Jul 1, 2024",
+    "prizePool": " ",
+    "flag": "Saudi Arabia",
+    "location": " Riyadh"
   },
   {
-    "tier": "Tier 1 Tournaments",
-    "title": "DreamLeague",
-    "date": "May 20 - 26, 2024"
+    "tier": "Tier 1",
+    "title": "DreamLeague Season 23",
+    "date": "May 20 - 26, 2024",
+    "prizePool": "$1,000,000",
+    "flag": "Europe",
+    "location": " Europe"
   },
   {
-    "tier": "Tier 1 Tournaments",
-    "title": "ESL One",
-    "date": "Apr 22 - 28, 2024"
+    "tier": "Tier 1",
+    "title": "ESL One Birmingham 2024",
+    "date": "Apr 22 - 28, 2024",
+    "prizePool": "$1,000,000",
+    "flag": "United Kingdom",
+    "location": " Birmingham"
   },
   {
-    "tier": "Tier 1 Tournaments",
-    "title": "DreamLeague",
-    "date": "Feb 25 - Mar 10, 2024"
+    "tier": "Tier 1",
+    "title": "DreamLeague Season 22",
+    "date": "Feb 25 - Mar 10, 2024",
+    "prizePool": "$1,000,000",
+    "flag": "Europe",
+    "location": " Europe"
   },
   {
-    "tier": "Tier 2 Tournaments",
-    "title": "Games of the Future/2024",
-    "date": "Feb 19 - 25, 2024"
+    "tier": "Tier 2",
+    "title": "Games of the Future 2024",
+    "date": "Feb 19 - 25, 2024",
+    "prizePool": "$1,000,000",
+    "flag": "Russia",
+    "location": " Kazan"
   },
   {
-    "tier": "Tier 1 Tournaments",
-    "title": "BetBoom Dacha",
-    "date": "Feb 10, 2024"
+    "tier": "Tier 1",
+    "title": "BetBoom Dacha Dubai 2024: Solo Tournament",
+    "date": "Feb 10, 2024",
+    "prizePool": "$100,000",
+    "flag": "United Arab Emirates",
+    "location": " Dubai"
   },
   {
-    "tier": "Tier 1 Tournaments",
-    "title": "BetBoom Dacha",
-    "date": "Feb 4 - 16, 2024"
+    "tier": "Tier 1",
+    "title": "BetBoom Dacha Dubai 2024",
+    "date": "Feb 4 - 16, 2024",
+    "prizePool": "$1,000,000",
+    "flag": "United Arab Emirates",
+    "location": " Dubai"
   },
   {
-    "tier": "Tier 3 Tournaments",
-    "title": "RES Regional Series",
-    "date": "Feb 3 - 21, 2024"
+    "tier": "Tier 3",
+    "title": "RES Regional Series: SEA #1",
+    "date": "Feb 3 - 21, 2024",
+    "prizePool": "$50,000",
+    "flag": "Southeast Asia",
+    "location": " Southeast Asia"
   },
   {
-    "tier": "Tier 3 Tournaments",
-    "title": "United Series",
-    "date": "Feb 2 - 29, 2024"
+    "tier": "Tier 3",
+    "title": "United Series 1",
+    "date": "Feb 2 - 29, 2024",
+    "prizePool": "$10,000",
+    "location": " South America"
   },
   {
-    "tier": "Tier 3 Tournaments",
-    "title": "EPL World Series",
-    "date": "Jan 31 - Feb 19, 2024"
+    "tier": "Tier 3",
+    "title": "EPL World Series: America Season 9",
+    "date": "Jan 31 - Feb 19, 2024",
+    "prizePool": "$10,000",
+    "location": " South America"
   },
   {
-    "tier": "Tier 4 Tournaments",
-    "title": "North American Dota Challengers League/Season 1",
-    "date": "Jan 26 - Mar 2, 2024"
+    "tier": "Tier 4",
+    "title": "North American Dota Challengers League Season 6 Division 1",
+    "date": "Jan 26 - Mar 2, 2024",
+    "prizePool": "$3,000",
+    "flag": "North America",
+    "location": " North America"
   },
   {
-    "tier": "Tier 4 Tournaments",
-    "title": "North American Dota Challengers League/Season 1",
-    "date": "Jan 26 - Mar 2, 2024"
+    "tier": "Tier 4",
+    "title": "North American Dota Challengers League Season 6 Division 2",
+    "date": "Jan 26 - Mar 2, 2024",
+    "prizePool": "$1,000",
+    "flag": "North America",
+    "location": " North America"
   },
   {
-    "tier": "Tier 3 Tournaments",
-    "title": "World Dota Series/New Year Cup/2024",
-    "date": "Jan 19 - Feb 15, 2024"
+    "tier": "Tier 3",
+    "title": "New Year Cup 2024",
+    "date": "Jan 19 - Feb 15, 2024",
+    "prizePool": "$30,000",
+    "flag": "Southeast Asia",
+    "location": " Southeast Asia"
   },
   {
-    "tier": "Tier 3 Tournaments",
-    "title": "EPL",
-    "date": "Jan 16 - Feb 10, 2024"
+    "tier": "Tier 3",
+    "title": "European Pro League Season 16",
+    "date": "Jan 16 - Feb 10, 2024",
+    "prizePool": "$20,000",
+    "flag": "Europe",
+    "location": " Europe"
   },
   {
-    "tier": "Weekly Tournaments",
-    "title": "NADCL Sunday Evening Cup Series",
-    "date": "Feb 4, 2024"
+    "tier": "Week.",
+    "title": "NADCL Season 6: Sunday Evening Cup Series #2",
+    "date": "Feb 4, 2024",
+    "prizePool": "$500",
+    "flag": "North America",
+    "location": " North America"
   },
   {
-    "tier": "Show Matches",
+    "tier": "Showm.",
     "title": "Frios Show 2",
-    "date": "Jan 30 - Feb 3, 2024"
+    "date": "Jan 30 - Feb 3, 2024",
+    "prizePool": "$5,000",
+    "flag": "Peru",
+    "location": " Peru"
   },
   {
-    "tier": "Tier 4 Tournaments",
-    "title": "MESA Champions/Winter/2023-2024",
-    "date": "Jan 31 - Feb 2, 2024"
+    "tier": "Tier 4",
+    "title": "MESA Champions Winter 2023-2024",
+    "date": "Jan 31 - Feb 2, 2024",
+    "prizePool": "$2,925",
+    "flag": "Mongolia",
+    "location": " Ulaanbaatar"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 28 - 30, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: China Closed Qualifier",
+    "date": "Jan 28 - 30, 2024",
+    "prizePool": " ",
+    "flag": "China",
+    "location": " China"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 28 - 30, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: MENA Closed Qualifier",
+    "date": "Jan 28 - 30, 2024",
+    "prizePool": " ",
+    "flag": "MENA",
+    "location": " MENA"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 28 - 30, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: Western Europe Closed Qualifier",
+    "date": "Jan 28 - 30, 2024",
+    "prizePool": " ",
+    "flag": "Europe",
+    "location": " Europe"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 28 - 30, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: South America Closed Qualifier",
+    "date": "Jan 28 - 30, 2024",
+    "prizePool": " ",
+    "location": " South America"
   },
   {
-    "tier": "Weekly Tournaments",
-    "title": "NADCL Sunday Evening Cup Series",
-    "date": "Jan 28, 2024"
+    "tier": "Week.",
+    "title": "NADCL Season 6: Sunday Evening Cup Series #1",
+    "date": "Jan 28, 2024",
+    "prizePool": "$500",
+    "flag": "North America",
+    "location": " North America"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 26 - 28, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: Southeast Asia Closed Qualifier",
+    "date": "Jan 26 - 28, 2024",
+    "prizePool": " ",
+    "flag": "Southeast Asia",
+    "location": " Southeast Asia"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 26 - 28, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: Eastern Europe Closed Qualifier",
+    "date": "Jan 26 - 28, 2024",
+    "prizePool": " ",
+    "flag": "CIS",
+    "location": " CIS"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 26 - 28, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: North America Closed Qualifier",
+    "date": "Jan 26 - 28, 2024",
+    "prizePool": " ",
+    "flag": "North America",
+    "location": " North America"
   },
   {
-    "tier": "Show Matches",
-    "title": "BetBoom Streamers Battle",
-    "date": "Jan 22 - 28, 2024"
+    "tier": "Showm.",
+    "title": "BetBoom Streamers Battle 5",
+    "date": "Jan 22 - 28, 2024",
+    "prizePool": "$22,472",
+    "flag": "Russia",
+    "location": " Russia"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 24 - 25, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: China Open Qualifier #2",
+    "date": "Jan 24 - 25, 2024",
+    "prizePool": " ",
+    "flag": "China",
+    "location": " China"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 24 - 25, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: Southeast Asia Open Qualifier #2",
+    "date": "Jan 24 - 25, 2024",
+    "prizePool": " ",
+    "flag": "Southeast Asia",
+    "location": " Southeast Asia"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 24 - 25, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: MENA Open Qualifier #2",
+    "date": "Jan 24 - 25, 2024",
+    "prizePool": " ",
+    "flag": "MENA",
+    "location": " MENA"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 24 - 25, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: Eastern Europe Open Qualifier #2",
+    "date": "Jan 24 - 25, 2024",
+    "prizePool": " ",
+    "flag": "CIS",
+    "location": " CIS"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 24 - 25, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: Western Europe Open Qualifier #2",
+    "date": "Jan 24 - 25, 2024",
+    "prizePool": " ",
+    "flag": "Europe",
+    "location": " Europe"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 24 - 25, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: South America Open Qualifier #2",
+    "date": "Jan 24 - 25, 2024",
+    "prizePool": " ",
+    "location": " South America"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 24, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: North America Open Qualifier #2",
+    "date": "Jan 24, 2024",
+    "prizePool": " ",
+    "flag": "North America",
+    "location": " North America"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 22 - 23, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: China Open Qualifier #1",
+    "date": "Jan 22 - 23, 2024",
+    "prizePool": " ",
+    "flag": "China",
+    "location": " China"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 22 - 23, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: Southeast Asia Open Qualifier #1",
+    "date": "Jan 22 - 23, 2024",
+    "prizePool": " ",
+    "flag": "Southeast Asia",
+    "location": " Southeast Asia"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 22 - 23, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: Eastern Europe Open Qualifier #1",
+    "date": "Jan 22 - 23, 2024",
+    "prizePool": " ",
+    "flag": "CIS",
+    "location": " CIS"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 22 - 23, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: Western Europe Open Qualifier #1",
+    "date": "Jan 22 - 23, 2024",
+    "prizePool": " ",
+    "flag": "Europe",
+    "location": " Europe"
   },
   {
-    "tier": "Qualifier Tournaments",
-    "title": "ESL One",
-    "date": "Jan 22 - 23, 2024"
+    "tier": "Qual.",
+    "title": "ESL One Birmingham 2024: South America Open Qualifier #1",
+    "date": "Jan 22 - 23, 2024",
+    "prizePool": " ",
+    "location": " South America"
   },
   {
-    "tier": "Tier 3 Tournaments",
-    "title": "FastInvitational DotaPRO/2",
-    "date": "Dec 22, 2023 - Jan 23, 2024"
+    "tier": "Tier 3",
+    "title": "FastInvitational DotaPRO Season 2",
+    "date": "Dec 22, 2023 - Jan 23, 2024",
+    "prizePool": "$12,000",
+    "location": " South America"
   }
 ]

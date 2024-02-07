@@ -21,25 +21,35 @@ const main = async () => {
       document.querySelectorAll(".tournamentCard .gridRow"),
     );
     return rows.map((row) => {
-      console.log(row);
       return {
-        tier: row
-          .querySelector(".gridCell.Header.Tier a")
-          ?.getAttribute("title"),
-        title: row
-          .querySelector(".gridCell.Header.Tournament a")
-          ?.getAttribute("title"),
+        tier: row.querySelector(".gridCell.Header.Tier a")?.textContent,
+        title:
+          row
+            .querySelector(".gridCell.Header.Tournament > a")
+            ?.textContent?.trim() ||
+          row
+            .querySelector(".gridCell.Header.Tournament > a")
+            ?.getAttribute("title"),
         date: row.querySelector(".gridCell.Header.EventDetails.Date")
           ?.textContent,
+        prizePool: row.querySelector(".gridCell.Header.EventDetails.Prize")
+          ?.textContent,
+        flag:
+          row
+            .querySelector(".gridCell.Header.EventDetails.Location .flag > img")
+            ?.getAttribute("title") ||
+          row
+            .querySelector(".gridCell.Header.EventDetails.Location .flag > a")
+            ?.getAttribute("title"),
+        location: row.querySelector(
+          ".gridCell.Header.EventDetails.Location .FlagText",
+        )?.textContent,
       };
     });
   });
 
-  console.log(tournaments);
-
-  // Save to JSON file
   fs.writeFile(
-    "tournaments.json",
+    "dota-tournaments.json",
     JSON.stringify(tournaments, null, 2),
     (err: Error) => {
       if (err) throw err;
