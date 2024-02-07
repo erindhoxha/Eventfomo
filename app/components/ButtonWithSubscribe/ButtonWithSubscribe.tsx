@@ -80,7 +80,7 @@ const ButtonWithSubscribe = ({
     <>
       <Button
         variant={active ? "outline" : "success"}
-        className="max-w-[150px] min-w-[150px] md:ml-auto"
+        className="max-w-[150px] min-w-[150px] lg:ml-auto"
         onClick={subscribe}
         disabled={loading}
       >

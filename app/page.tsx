@@ -26,27 +26,27 @@ export default async function Home() {
 
   const dotaEvents = await useEvents({
     gameId: "dota",
-    limit: 5,
+    limit: 7,
   });
 
   const csgoEvents = await useEvents({
     gameId: "csgo",
-    limit: 5,
+    limit: 7,
   });
 
   const chessEvents = await useEvents({
     gameId: "chess",
-    limit: 5,
+    limit: 7,
   });
 
   const lolEvents = await useEvents({
     gameId: "lol",
-    limit: 5,
+    limit: 7,
   });
 
   const wowEvents = await useEvents({
     gameId: "wow",
-    limit: 5,
+    limit: 7,
   });
 
   const session = await getSession();

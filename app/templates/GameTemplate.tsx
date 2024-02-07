@@ -44,14 +44,14 @@ const GameTemplate = async ({
   return (
     <>
       <div className="mt-12 sm:mt-24 w-full">
-        <div className="flex lg:flex-row flex-col justify-between">
+        <div className="flex lg:flex-row flex-col justify-between lg:items-end">
           <div className="flex flex-col">
             <H3>{title}</H3>
             <SmallMutedText>{description}</SmallMutedText>
           </div>
-          <div className="flex flex-col justify-end align-end mt-4 max-w-4xl">
+          <div className="flex flex-col justify-end lg:items-end mt-4 lg:mt-0 max-w-4xl">
             <Link
-              className="md:text-right text-sm underline mb-2"
+              className="lg:text-right text-sm underline mb-2"
               href={userId ? "/dashboard/subscriptions" : "/login"}
             >
               Manage your subscriptions
