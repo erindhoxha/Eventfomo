@@ -21,29 +21,42 @@ const main = async () => {
       document.querySelectorAll(".tournamentCard .gridRow"),
     );
     return rows.map((row) => {
+      const dateRange = row.querySelector(
+        ".gridCell.Header.EventDetails.Date",
+      )?.textContent;
+
+      function parseDateRange(dateRange: string) {
+        if (!dateRange) return { starts_at: "", ends_at: "" };
+        const parts = dateRange.split(" - ");
+        const starts_at = new Date(parts[0]);
+
+        let ends_at;
+        if (parts[1]) {
+          if (isNaN(Date.parse(parts[1]))) {
+            const monthYear = parts[0].split(" ").slice(0, -1).join(" ");
+            ends_at = new Date(`${monthYear} ${parts[1]}`);
+          } else {
+            ends_at = new Date(parts[1]);
+          }
+        } else {
+          ends_at = new Date(parts[0]);
+        }
+        return { starts_at, ends_at };
+      }
+
+      const { starts_at, ends_at } = parseDateRange(dateRange || "");
+
       return {
-        tier: row.querySelector(".gridCell.Header.Tier a")?.textContent,
-        title:
+        name:
           row
             .querySelector(".gridCell.Header.Tournament > a")
             ?.textContent?.trim() ||
           row
             .querySelector(".gridCell.Header.Tournament > a")
             ?.getAttribute("title"),
-        date: row.querySelector(".gridCell.Header.EventDetails.Date")
-          ?.textContent,
-        prizePool: row.querySelector(".gridCell.Header.EventDetails.Prize")
-          ?.textContent,
-        flag:
-          row
-            .querySelector(".gridCell.Header.EventDetails.Location .flag > img")
-            ?.getAttribute("title") ||
-          row
-            .querySelector(".gridCell.Header.EventDetails.Location .flag > a")
-            ?.getAttribute("title"),
-        location: row.querySelector(
-          ".gridCell.Header.EventDetails.Location .FlagText",
-        )?.textContent,
+        game_id: "dota",
+        starts_at: new Date(starts_at).toISOString(),
+        ends_at: new Date(ends_at).toISOString(),
       };
     });
   });
