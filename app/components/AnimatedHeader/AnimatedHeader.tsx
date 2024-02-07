@@ -17,7 +17,7 @@ const AnimatedHeader = () => {
     //   }}
     //   transition={{ duration: 0.25, ease: "easeInOut" }}
     // >
-    <H1>Your personal gaming calendar </H1>
+    <H1>Your free personal gaming calendar </H1>
     // </motion.div>
   );
 };

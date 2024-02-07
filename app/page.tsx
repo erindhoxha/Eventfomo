@@ -60,7 +60,8 @@ export default async function Home() {
           <Animated />
           <Paragraph>
             The events you can't miss, the best content from your favourite
-            games, in a daily email that you can sync on your calendar
+            games, in a daily email that you can sync on your calendar. Start
+            getting emails today.
           </Paragraph>
         </Box>
         <Box
