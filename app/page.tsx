@@ -16,13 +16,25 @@ import Animated from "./components/AnimatedHeader/AnimatedHeader";
 import getCurrentEvents from "./utils/getCurrentEvents";
 import getFutureEvents from "./utils/getFutureEvents";
 import getPreviousEvents from "./utils/getPreviousEvents";
+import supabase from "@/supabase";
 
 export default async function Home() {
   const allEvents = await useEvents();
 
   const eventsHappenedBefore = getPreviousEvents(allEvents.data);
-  const eventsHappeningNow = getCurrentEvents(allEvents.data);
   const eventsHappeningSoon = getFutureEvents(allEvents.data);
+
+  const now = new Date().toISOString();
+
+  const currentEvents = await supabase
+    .from("events")
+    .select("*")
+    .filter("starts_at", "lt", now)
+    .filter("ends_at", "gt", now)
+    .order("starts_at", { ascending: false })
+    .limit(7);
+
+  console.log(currentEvents);
 
   const dotaEvents = await useEvents({
     gameId: "dota",
@@ -96,7 +108,7 @@ export default async function Home() {
         <Box marginTop={4}>
           <MiniTable
             title="Events happening right now"
-            items={eventsHappeningNow}
+            items={currentEvents.data}
           />
         </Box>
         <div className="grid gap-4 md:grid-cols-2 mt-4">
