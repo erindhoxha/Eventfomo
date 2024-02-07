@@ -28,13 +28,14 @@ const main = async () => {
       function parseDateRange(dateRange: string) {
         if (!dateRange) return { starts_at: "", ends_at: "" };
         const parts = dateRange.split(" - ");
-        const starts_at = new Date(parts[0]);
+        const year = new Date().getFullYear(); // Get the current year
+        const starts_at = new Date(`${parts[0]}, ${year}`);
 
         let ends_at;
         if (parts[1]) {
           if (isNaN(Date.parse(parts[1]))) {
             const monthYear = parts[0].split(" ").slice(0, -1).join(" ");
-            ends_at = new Date(`${monthYear} ${parts[1]}`);
+            ends_at = new Date(`${monthYear} ${parts[1]}, ${year}`);
           } else {
             ends_at = new Date(parts[1]);
           }
