@@ -16,12 +16,19 @@ import Animated from "./components/AnimatedHeader/AnimatedHeader";
 import getFutureEvents from "./utils/getFutureEvents";
 import getPreviousEvents from "./utils/getPreviousEvents";
 import useCurrentEvents from "./hooks/useCurrentEvents";
+import useFutureEvents from "./hooks/useFutureEvents";
+import usePreviousEvents from "./hooks/usePreviousEvents";
 
 export default async function Home() {
   const allEvents = await useEvents();
 
-  const eventsHappenedBefore = getPreviousEvents(allEvents.data);
-  const eventsHappeningSoon = getFutureEvents(allEvents.data);
+  const previousEvents = await usePreviousEvents({
+    limit: 7,
+  });
+
+  const futureEvents = await useFutureEvents({
+    limit: 7,
+  });
 
   const currentEvents = await useCurrentEvents({
     limit: 7,
@@ -104,14 +111,14 @@ export default async function Home() {
           />
         </Box>
         <div className="grid gap-4 md:grid-cols-2 mt-4">
-          <MiniTable title="Recent tournaments" items={eventsHappenedBefore} />
-          <MiniTable title="Upcoming tournaments" items={eventsHappeningSoon} />
+          <MiniTable title="Recent tournaments" items={previousEvents.data} />
+          <MiniTable title="Upcoming tournaments" items={futureEvents.data} />
         </div>
         <Box marginTop={12}>
           <H3>Upcoming events</H3>
-          {allEvents.data && (
+          {futureEvents.data && (
             <Box marginTop={4}>
-              <DataTable columns={columns} data={allEvents.data} />
+              <DataTable columns={columns} data={futureEvents.data} />
             </Box>
           )}
         </Box>
