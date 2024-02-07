@@ -22,6 +22,7 @@ interface MiniTableProps {
   description?: string;
   items: MiniTableItemProps[] | null | undefined;
   gameId?: string;
+  href?: string;
 }
 
 const ListItem = ({
@@ -99,7 +100,13 @@ const ListItem = ({
   );
 };
 
-const MiniTable = ({ title, description, items, gameId }: MiniTableProps) => {
+const MiniTable = ({
+  title,
+  description,
+  items,
+  gameId,
+  href,
+}: MiniTableProps) => {
   return (
     <Card className="col-span-1 bg-dark">
       <CardHeader>
@@ -110,6 +117,11 @@ const MiniTable = ({ title, description, items, gameId }: MiniTableProps) => {
               <CardDescription className="ml-2">{description}</CardDescription>
             )}
           </div>
+          {href ? (
+            <LinkComponent href={`${href}`} className="ml-auto" variant="link">
+              <p className="text-sm text-muted-foreground">View more</p>
+            </LinkComponent>
+          ) : null}
           {gameId ? (
             <LinkComponent
               href={`/games/${gameId}`}

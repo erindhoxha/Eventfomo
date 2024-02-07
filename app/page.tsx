@@ -13,10 +13,9 @@ import { DataTable } from "./games/data-table";
 import { columns } from "./games/columns";
 import getSession from "./hooks/getSession";
 import Animated from "./components/AnimatedHeader/AnimatedHeader";
-import getCurrentEvents from "./utils/getCurrentEvents";
 import getFutureEvents from "./utils/getFutureEvents";
 import getPreviousEvents from "./utils/getPreviousEvents";
-import supabase from "@/supabase";
+import useCurrentEvents from "./hooks/useCurrentEvents";
 
 export default async function Home() {
   const allEvents = await useEvents();
@@ -24,17 +23,9 @@ export default async function Home() {
   const eventsHappenedBefore = getPreviousEvents(allEvents.data);
   const eventsHappeningSoon = getFutureEvents(allEvents.data);
 
-  const now = new Date().toISOString();
-
-  const currentEvents = await supabase
-    .from("events")
-    .select("*")
-    .filter("starts_at", "lt", now)
-    .filter("ends_at", "gt", now)
-    .order("starts_at", { ascending: false })
-    .limit(7);
-
-  console.log(currentEvents);
+  const currentEvents = await useCurrentEvents({
+    limit: 7,
+  });
 
   const dotaEvents = await useEvents({
     gameId: "dota",
@@ -104,16 +95,17 @@ export default async function Home() {
         </SmallMutedText>
       </div>
       <Box marginTop={12} className="sm:mt-24 w-full">
-        <H3>All events</H3>
+        <H3>Events and tournaments</H3>
         <Box marginTop={4}>
           <MiniTable
-            title="Events happening right now"
+            title="Happening now"
             items={currentEvents.data}
+            href="/happening-now"
           />
         </Box>
         <div className="grid gap-4 md:grid-cols-2 mt-4">
-          <MiniTable title="Recent Tournaments" items={eventsHappenedBefore} />
-          <MiniTable title="Upcoming Tournaments" items={eventsHappeningSoon} />
+          <MiniTable title="Recent tournaments" items={eventsHappenedBefore} />
+          <MiniTable title="Upcoming tournaments" items={eventsHappeningSoon} />
         </div>
         <Box marginTop={12}>
           <H3>Upcoming events</H3>
