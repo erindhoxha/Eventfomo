@@ -3,8 +3,6 @@ const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 import { Browser } from "puppeteer";
 const fs = require("fs");
 
-puppeteer.use(StealthPlugin());
-
 const url = "https://books.toscrape.com/";
 
 const main = async () => {
