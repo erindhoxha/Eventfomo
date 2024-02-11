@@ -18,6 +18,7 @@ import getPreviousEvents from "./utils/getPreviousEvents";
 import useCurrentEvents from "./hooks/useCurrentEvents";
 import useFutureEvents from "./hooks/useFutureEvents";
 import usePreviousEvents from "./hooks/usePreviousEvents";
+import { DataTablePagination } from "./components/TablePagination/TablePagination";
 
 export default async function Home() {
   const allEvents = await useEvents();

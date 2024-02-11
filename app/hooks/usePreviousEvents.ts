@@ -18,7 +18,7 @@ const usePreviousEvents = async ({ limit = 10 }: EventsQuery = {}) => {
   const { data, error } = await query;
 
   if (!data) {
-    throw new Error("No events found");
+    console.log("No events found.");
   }
 
   return {

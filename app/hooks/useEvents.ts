@@ -15,7 +15,7 @@ const useEvents = async ({ limit = 10, gameId }: EventsQuery = {}) => {
   const { data, error } = await query;
 
   if (!data) {
-    throw new Error("No events found");
+    console.log("No events found.");
   }
 
   return {

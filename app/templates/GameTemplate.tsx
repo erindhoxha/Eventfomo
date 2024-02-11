@@ -22,7 +22,7 @@ const GameTemplate = async ({
     gameId: gameId,
     limit: 50,
   });
-  console.log(allEvents.data.length);
+
   const session = await getSession();
   const userId = session?.user?.id;
 
