@@ -16,7 +16,7 @@ export default async function HappeningNowPage() {
   return (
     <div className="mt-12 sm:mt-24 w-full">
       <div className="flex flex-col mb-5">
-        <H3>Recent games</H3>
+        <H3>Recent tournaments</H3>
       </div>
       {previousGames.data && (
         <DataTable pageSize={50} columns={columns} data={previousGames.data} />
