@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import GameTemplate from "@/app/templates/GameTemplate";
-import getSession from "@/app/hooks/getSession";
 
 export const metadata: Metadata = {
   title: "Chess games",

@@ -112,7 +112,11 @@ export default async function Home() {
           />
         </Box>
         <div className="grid gap-4 md:grid-cols-2 mt-4">
-          <MiniTable title="Recent tournaments" items={previousEvents.data} />
+          <MiniTable
+            title="Recent tournaments"
+            items={previousEvents.data}
+            href="/recent-games"
+          />
           <MiniTable title="Upcoming tournaments" items={futureEvents.data} />
         </div>
         <Box marginTop={12}>
