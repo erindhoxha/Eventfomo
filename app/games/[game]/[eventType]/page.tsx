@@ -4,6 +4,7 @@ import EventTemplate from "@/app/templates/EventTemplate";
 import { EventType, GamesType } from "@/app/types/global";
 import getCurrentEvents from "@/app/utils/getCurrentEvents";
 import getUpcomingEvents from "@/app/utils/getFutureEvents";
+import getGameById from "@/app/utils/getGameById";
 import getRecentEvents from "@/app/utils/getPreviousEvents";
 import { Metadata } from "next";
 
@@ -41,14 +42,16 @@ export default async function Page({
     }
   };
 
+  const gameTitleById = getGameById(game);
+
   const getTitleByEvent = (e: EventType) => {
     switch (e) {
       case "current":
-        return "Current tournaments";
+        return `Current ${gameTitleById} tournaments`;
       case "recent":
-        return "Recent tournaments";
+        return `Recent ${gameTitleById} tournaments`;
       case "upcoming":
-        return "Upcoming tournaments";
+        return `Upcoming ${gameTitleById} tournaments`;
       default:
         throw new Error("Event type doesn't exist");
     }
