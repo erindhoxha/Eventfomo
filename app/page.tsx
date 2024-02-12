@@ -79,7 +79,7 @@ export default async function Home() {
           marginTop={8}
           className="lg:ml-12 flex flex-1 lg:justify-center w-full"
         >
-          <SubscribeForm />
+          {!user ? <SubscribeForm /> : null}
         </Box>
       </Box>
       <div className="mt-12 sm:mt-24 w-full">

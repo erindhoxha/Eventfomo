@@ -7,7 +7,7 @@ const anonKey = process.env.SUPABASE_ANON_KEY!;
 
 const supabase = createClient(url, anonKey);
 
-const data = fs.readFileSync("dota-tournaments.json", "utf8");
+const data = fs.readFileSync("wow-tournaments.json", "utf8");
 
 const tournaments = JSON.parse(data);
 

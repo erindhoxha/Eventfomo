@@ -4,6 +4,9 @@ const fs = require("fs");
 
 puppeteer.use(StealthPlugin());
 
+// https://liquipedia.net/dota2/api.php?action=parse&page=Portal:Tournaments&format=json
+// Use this API endpoint to get the data, instead of scraping!
+
 const url = "https://liquipedia.net/dota2/Portal:Tournaments"; // <-- Replace with your actual URL
 
 const main = async () => {

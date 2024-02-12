@@ -1,5 +1,5 @@
-const puppeteer = require("puppeteer-extra");
-const StealthPlugin = require("puppeteer-extra-plugin-stealth");
+import puppeteer from "puppeteer-extra";
+import StealthPlugin from "puppeteer-extra-plugin-stealth";
 const fs = require("fs");
 
 puppeteer.use(StealthPlugin());
@@ -15,7 +15,6 @@ const main = async () => {
 
   await page.goto(url, { waitUntil: "domcontentloaded" });
 
-  // Scrape the tournament data
   const tournaments = await page.evaluate(() => {
     const rows = Array.from(
       document.querySelectorAll(".tournamentCard .gridRow"),
