@@ -63,8 +63,6 @@ export default async function Home() {
   const session = await getSession();
   const user = session?.user;
 
-  console.log(futureEvents.data);
-
   return (
     <main className="flex flex-col items-start p-6 lg:p-6 container">
       <Header user={user} />
