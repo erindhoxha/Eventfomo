@@ -5,8 +5,8 @@ import { H3, SmallMutedText } from "../components/Typography/Typography";
 import getSession from "../hooks/getSession";
 import useEvents from "../hooks/useEvents";
 import useSubscription from "../hooks/useSubscription";
-import getPreviousEvents from "../utils/getPreviousEvents";
-import getFutureEvents from "../utils/getFutureEvents";
+import getRecentEvents from "../utils/getPreviousEvents";
+import getUpcomingEvents from "../utils/getFutureEvents";
 import getCurrentEvents from "../utils/getCurrentEvents";
 
 const GameTemplate = async ({
@@ -26,8 +26,8 @@ const GameTemplate = async ({
   const session = await getSession();
   const userId = session?.user?.id;
 
-  const previousEvents = getPreviousEvents(allEvents.data);
-  const futureEvents = getFutureEvents(allEvents.data);
+  const previousEvents = getRecentEvents(allEvents.data);
+  const futureEvents = getUpcomingEvents(allEvents.data);
   const currentEvents = getCurrentEvents(allEvents.data);
 
   const subscription = await useSubscription({

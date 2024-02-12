@@ -1,6 +1,6 @@
 import { Event } from "../types/global";
 
-const getPreviousEvents = (events: Event[] | null): Event[] | undefined => {
+const getRecentEvents = (events: Event[] | null): Event[] | undefined => {
   const currentEvents = events?.filter((event) => {
     const now = new Date();
     const endsAt = event.ends_at ? new Date(event.ends_at) : undefined;
@@ -10,4 +10,4 @@ const getPreviousEvents = (events: Event[] | null): Event[] | undefined => {
   return currentEvents;
 };
 
-export default getPreviousEvents;
+export default getRecentEvents;

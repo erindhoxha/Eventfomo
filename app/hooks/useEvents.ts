@@ -1,12 +1,22 @@
 import supabase from "@/supabase";
+import { GamesType } from "../types/global";
+import { Games } from "../constants/constants";
 
 interface EventsQuery {
   limit?: number;
-  gameId?: string;
+  gameId?: GamesType;
 }
 
 const useEvents = async ({ limit = 10, gameId }: EventsQuery = {}) => {
+  if (gameId && !Games.includes(gameId)) {
+    throw new Error(
+      `Invalid game ID: ${gameId}. It must be one of these games: ${Games}`,
+    );
+  }
+
   let query = supabase.from("events").select("*").limit(limit);
+
+  console.log(gameId);
 
   if (gameId) {
     query = query.eq("game_id", gameId);

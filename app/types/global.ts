@@ -6,3 +6,7 @@ export interface Event {
   name: string;
   starts_at: string;
 }
+
+export type EventType = "recent" | "upcoming" | "current";
+
+export type GamesType = "dota" | "wow" | "chess" | "csgo" | "lol";
