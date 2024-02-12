@@ -1,12 +1,7 @@
 import useEvents from "@/app/hooks/useEvents";
-import usePreviousEvents from "@/app/hooks/usePreviousEvents";
 import EventTemplate from "@/app/templates/EventTemplate";
 import { EventType, GamesType } from "@/app/types/global";
-import getCurrentEvents from "@/app/utils/getCurrentEvents";
 import { getEventsByEventType } from "@/app/utils/getEventsByEventType";
-import getUpcomingEvents from "@/app/utils/getFutureEvents";
-import getGameById from "@/app/utils/getGameById";
-import getRecentEvents from "@/app/utils/getPreviousEvents";
 import { getTitleByEvent } from "@/app/utils/getTitleByEvent";
 import { Metadata, ResolvingMetadata } from "next";
 
