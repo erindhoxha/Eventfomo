@@ -7,7 +7,7 @@ const EventTemplate = ({
   games,
 }: {
   title: string;
-  games: Games[] | null;
+  games?: Games[] | null;
 }) => {
   return (
     <div className="mt-12 sm:mt-24 w-full">

@@ -117,7 +117,11 @@ export default async function Home() {
             items={previousEvents.data}
             href="/recent-games"
           />
-          <MiniTable title="Upcoming tournaments" items={futureEvents.data} />
+          <MiniTable
+            title="Upcoming tournaments"
+            items={futureEvents.data}
+            href="/upcoming-games"
+          />
         </div>
         <Box marginTop={12}>
           <H3>Upcoming events</H3>

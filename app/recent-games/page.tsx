@@ -14,5 +14,7 @@ export default async function HappeningNowPage() {
   const previousGames = await usePreviousEvents({
     limit: 100,
   });
-  return <EventTemplate title="Recent games" games={previousGames.data} />;
+  return (
+    <EventTemplate title="Recent tournaments" games={previousGames.data} />
+  );
 }

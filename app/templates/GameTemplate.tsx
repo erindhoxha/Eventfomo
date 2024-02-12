@@ -64,11 +64,23 @@ const GameTemplate = async ({
           </div>
         </div>
         <div className="mt-4">
-          <MiniTable title="Popular ongoing events" items={currentEvents} />
+          <MiniTable
+            title="Popular ongoing events"
+            items={currentEvents}
+            href="current"
+          />
         </div>
         <div className="grid gap-4 md:grid-cols-2 mt-4">
-          <MiniTable title="Recent Tournaments" items={previousEvents} />
-          <MiniTable title="Upcoming Tournaments" items={futureEvents} />
+          <MiniTable
+            title="Recent Tournaments"
+            items={previousEvents}
+            href="recent"
+          />
+          <MiniTable
+            title="Upcoming Tournaments"
+            items={futureEvents}
+            href="upcoming"
+          />
         </div>
       </div>
     </>
