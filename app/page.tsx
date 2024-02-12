@@ -13,16 +13,13 @@ import { DataTable } from "./games/data-table";
 import { columns } from "./games/columns";
 import getSession from "./hooks/getSession";
 import Animated from "./components/AnimatedHeader/AnimatedHeader";
-import getUpcomingEvents from "./utils/getFutureEvents";
-import getRecentEvents from "./utils/getPreviousEvents";
 import useCurrentEvents from "./hooks/useCurrentEvents";
 import useFutureEvents from "./hooks/useFutureEvents";
 import usePreviousEvents from "./hooks/usePreviousEvents";
-import { DataTablePagination } from "./components/TablePagination/TablePagination";
+
+export const revalidate = 3600;
 
 export default async function Home() {
-  const allEvents = await useEvents();
-
   const previousEvents = await usePreviousEvents({
     limit: 7,
   });

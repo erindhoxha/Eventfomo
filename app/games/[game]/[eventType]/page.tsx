@@ -3,26 +3,16 @@ import usePreviousEvents from "@/app/hooks/usePreviousEvents";
 import EventTemplate from "@/app/templates/EventTemplate";
 import { EventType, GamesType } from "@/app/types/global";
 import getCurrentEvents from "@/app/utils/getCurrentEvents";
+import { getEventsByEventType } from "@/app/utils/getEventsByEventType";
 import getUpcomingEvents from "@/app/utils/getFutureEvents";
 import getGameById from "@/app/utils/getGameById";
 import getRecentEvents from "@/app/utils/getPreviousEvents";
+import { getTitleByEvent } from "@/app/utils/getTitleByEvent";
 import { Metadata, ResolvingMetadata } from "next";
 
 type EventMetadataType = { game: GamesType; eventType: EventType };
 
-const getTitleByEvent = (event: EventType, game: GamesType) => {
-  const gameTitleById = getGameById(game);
-  switch (event) {
-    case "current":
-      return `Current ${gameTitleById} tournaments`;
-    case "recent":
-      return `Recent ${gameTitleById} tournaments`;
-    case "upcoming":
-      return `Upcoming ${gameTitleById} tournaments`;
-    default:
-      throw new Error("Event type doesn't exist");
-  }
-};
+export const revalidate = 3600;
 
 export async function generateMetadata({
   params,
@@ -48,20 +38,7 @@ export default async function Page({ params }: { params: EventMetadataType }) {
     throw new Error("Game type doesn't exist. Please try again");
   }
 
-  const getByEvent = (e: EventType) => {
-    switch (e) {
-      case "recent":
-        return getRecentEvents(allGames.data);
-      case "current":
-        return getCurrentEvents(allGames.data);
-      case "upcoming":
-        return getUpcomingEvents(allGames.data);
-      default:
-        throw new Error("Event type doesn't exist");
-    }
-  };
-
-  const event = getByEvent(eventType);
+  const event = getEventsByEventType(eventType, allGames.data);
   const title = getTitleByEvent(eventType, game);
 
   return <EventTemplate title={title} games={event} />;

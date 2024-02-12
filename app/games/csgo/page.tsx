@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: "Sync your calendar with your favourite CSGO games.",
 };
 
+export const revalidate = 3600;
+
 export default async function CSGOPage() {
   return (
     <GameTemplate

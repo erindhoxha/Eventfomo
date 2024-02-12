@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     "Sync your calendar with your favourite League of Legends games.",
 };
 
+export const revalidate = 3600;
+
 export default async function LeagueGames() {
   return (
     <GameTemplate

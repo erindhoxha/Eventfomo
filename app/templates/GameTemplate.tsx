@@ -8,6 +8,7 @@ import useSubscription from "../hooks/useSubscription";
 import getRecentEvents from "../utils/getPreviousEvents";
 import getUpcomingEvents from "../utils/getFutureEvents";
 import getCurrentEvents from "../utils/getCurrentEvents";
+import { GamesType } from "../types/global";
 
 const GameTemplate = async ({
   title,
@@ -16,7 +17,7 @@ const GameTemplate = async ({
 }: {
   title: string;
   description: string;
-  gameId: string;
+  gameId: GamesType;
 }) => {
   const allEvents = await useEvents({
     gameId: gameId,

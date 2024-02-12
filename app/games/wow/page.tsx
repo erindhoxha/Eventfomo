@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     "Sync your calendar with your favourite World of Warcraft games.",
 };
 
+export const revalidate = 3600;
+
 export default async function WowPage() {
   return (
     <GameTemplate

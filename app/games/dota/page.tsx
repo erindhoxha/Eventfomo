@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: "Sync your calendar with your favourite Dota 2 games.",
 };
 
+export const revalidate = 3600;
+
 export default async function DotaPage() {
   return (
     <GameTemplate
