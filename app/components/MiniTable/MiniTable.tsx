@@ -87,7 +87,7 @@ const ListItem = ({
                 className="sm:min-w-[24] sm:min-h-[24] min-w-[24px] min-h-[24px]"
                 height="24"
                 src={`/img/icons/twitch.png`}
-                alt={`Youtube link for ${game_id}`}
+                alt={`Twitch link for ${game_id}`}
               />
             </a>
           </div>
