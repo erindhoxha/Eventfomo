@@ -5,6 +5,8 @@ export interface Event {
   id: number;
   name: string;
   starts_at: string;
+  twitch_url: string | null;
+  youtube_url: string | null;
 }
 
 export type EventType = "recent" | "upcoming" | "current";

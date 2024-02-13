@@ -5,22 +5,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import Link from "next/link";
 import LinkComponent from "../Link/Link";
-
-interface MiniTableItemProps {
-  description: string | null;
-  ends_at: string | null;
-  game_id: string;
-  id: number;
-  name: string;
-  starts_at: string;
-}
+import { Event } from "@/app/types/global";
 
 interface MiniTableProps {
   title: string;
   description?: string;
-  items: MiniTableItemProps[] | null | undefined;
+  items: Event[] | null | undefined;
   gameId?: string;
   href?: string;
 }
@@ -31,7 +22,9 @@ const ListItem = ({
   description,
   starts_at,
   ends_at,
-}: Omit<MiniTableItemProps, "id" | "created_at">) => {
+  twitch_url,
+  youtube_url,
+}: Omit<Event, "id" | "created_at">) => {
   return (
     <div className="flex lg:flex-row sm:items-center">
       <div className="space-y-1 flex items-center">
@@ -74,26 +67,30 @@ const ListItem = ({
 
       <div className="flex ml-auto items-center">
         <div className="mr-2">
-          <a href="#" target="_blank" rel="noreferrer">
-            <img
-              width="24"
-              className="sm:min-w-[24] sm:min-h-[24] min-w-[24px] min-h-[24px]"
-              height="24"
-              src={`/img/icons/youtube.png`}
-              alt={`Youtube link for ${game_id}`}
-            />
-          </a>
+          {youtube_url && (
+            <a href="#" target="_blank" rel="noreferrer">
+              <img
+                width="24"
+                className="sm:min-w-[24] sm:min-h-[24] min-w-[24px] min-h-[24px]"
+                height="24"
+                src={`/img/icons/youtube.png`}
+                alt={`Youtube link for ${game_id}`}
+              />
+            </a>
+          )}
         </div>
         <div className="mr-2">
-          <a href="#" target="_blank" rel="noreferrer">
-            <img
-              width="24"
-              className="sm:min-w-[24] sm:min-h-[24] min-w-[24px] min-h-[24px]"
-              height="24"
-              src={`/img/icons/twitch.png`}
-              alt={`Youtube link for ${game_id}`}
-            />
-          </a>
+          {twitch_url && (
+            <a href="#" target="_blank" rel="noreferrer">
+              <img
+                width="24"
+                className="sm:min-w-[24] sm:min-h-[24] min-w-[24px] min-h-[24px]"
+                height="24"
+                src={`/img/icons/twitch.png`}
+                alt={`Youtube link for ${game_id}`}
+              />
+            </a>
+          )}
         </div>
       </div>
     </div>
@@ -143,6 +140,8 @@ const MiniTable = ({
               game_id={item.game_id}
               starts_at={item.starts_at}
               ends_at={item.ends_at}
+              youtube_url={item.youtube_url}
+              twitch_url={item.twitch_url}
             />
           ))}
         </div>
