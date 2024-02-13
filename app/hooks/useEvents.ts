@@ -16,8 +16,6 @@ const useEvents = async ({ limit = 10, gameId }: EventsQuery = {}) => {
 
   let query = supabase.from("events").select("*").limit(limit);
 
-  console.log(gameId);
-
   if (gameId) {
     query = query.eq("game_id", gameId);
   }

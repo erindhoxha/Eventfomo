@@ -66,8 +66,8 @@ const ListItem = ({
       </div>
 
       <div className="flex ml-auto items-center">
-        <div className="mr-2">
-          {youtube_url && (
+        {youtube_url && (
+          <div className="mr-2">
             <a href="#" target="_blank" rel="noreferrer">
               <img
                 width="24"
@@ -77,10 +77,10 @@ const ListItem = ({
                 alt={`Youtube link for ${game_id}`}
               />
             </a>
-          )}
-        </div>
-        <div className="mr-2">
-          {twitch_url && (
+          </div>
+        )}
+        {twitch_url && (
+          <div className="mr-2">
             <a href="#" target="_blank" rel="noreferrer">
               <img
                 width="24"
@@ -90,8 +90,8 @@ const ListItem = ({
                 alt={`Youtube link for ${game_id}`}
               />
             </a>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
