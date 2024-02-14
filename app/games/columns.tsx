@@ -95,9 +95,6 @@ export const columns: ColumnDef<Games>[] = [
       const youtubeUrl = row.youtube_url;
       return (
         <div className="flex ml-auto items-center">
-          {!youtubeUrl && !twitchUrl ? (
-            <p className="text-muted-foreground">N/A</p>
-          ) : null}
           {youtubeUrl ? (
             <a
               href={youtubeUrl}
