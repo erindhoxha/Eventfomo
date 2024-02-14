@@ -21,46 +21,69 @@ export const columns: ColumnDef<Games>[] = [
     accessorKey: "name",
     header: "Name",
   },
+  // {
+  //   accessorKey: "starts_at",
+  //   header: ({ column }) => {
+  //     return (
+  //       <Button
+  //         style={{
+  //           paddingLeft: 0,
+  //         }}
+  //         variant="none"
+  //         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+  //       >
+  //         Start date
+  //         <ArrowUpDown className="ml-2 h-4 w-4" />
+  //       </Button>
+  //     );
+  //   },
+  //   cell: (c) => {
+  //     const date = c.getValue() as string;
+  //     return (
+  //       <div className="text-xs md:text-sm">
+  //         {format(new Date(date || ""), "dd/MM/yyyy")}
+  //       </div>
+  //     );
+  //   },
+  // },
+  // {
+  //   accessorKey: "ends_at",
+  //   header: ({ column }) => {
+  //     return (
+  //       <Button
+  //         style={{
+  //           paddingLeft: 0,
+  //         }}
+  //         variant="none"
+  //         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+  //       >
+  //         End date
+  //         <ArrowUpDown className="ml-2 h-4 w-4" />
+  //       </Button>
+  //     );
+  //   },
+  //   cell: (c) => {
+  //     const date = c.getValue() as string;
+  //     return (
+  //       <div className="text-xs md:text-sm">
+  //         {format(new Date(date || ""), "dd/MM/yyyy")}
+  //       </div>
+  //     );
+  //   },
+  // },
   {
-    accessorKey: "starts_at",
-    header: ({ column }) => {
-      return (
-        <Button
-          style={{
-            paddingLeft: 0,
-          }}
-          variant="none"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Start date
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
+    accessorKey: "dates",
+    header: "Dates",
     cell: (c) => {
-      const date = c.getValue() as string;
-      return format(new Date(date || ""), "dd/MM/yyyy");
-    },
-  },
-  {
-    accessorKey: "ends_at",
-    header: ({ column }) => {
+      const row = c.row.original as Event;
+      const startDate = format(new Date(row.starts_at || ""), "dd/MM/yyyy");
+      const endDate = format(new Date(row.ends_at || ""), "dd/MM/yyyy");
       return (
-        <Button
-          style={{
-            paddingLeft: 0,
-          }}
-          variant="none"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          End date
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
+        <div>
+          {`${startDate}`} <span className="divider hidden sm:inline ">/</span>{" "}
+          {`${endDate}`}
+        </div>
       );
-    },
-    cell: (c) => {
-      const date = c.getValue() as string;
-      return format(new Date(date || ""), "dd/MM/yyyy");
     },
   },
   {

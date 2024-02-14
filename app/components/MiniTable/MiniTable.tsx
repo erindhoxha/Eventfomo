@@ -114,20 +114,6 @@ const MiniTable = ({
               <CardDescription className="ml-2">{description}</CardDescription>
             )}
           </div>
-          {href ? (
-            <LinkComponent href={`${href}`} className="ml-auto" variant="link">
-              <p className="text-sm text-muted-foreground">View more</p>
-            </LinkComponent>
-          ) : null}
-          {gameId ? (
-            <LinkComponent
-              href={`/games/${gameId}`}
-              className="ml-auto"
-              variant="link"
-            >
-              <p className="text-sm text-muted-foreground">View more</p>
-            </LinkComponent>
-          ) : null}
         </div>
       </CardHeader>
       <CardContent>
@@ -153,6 +139,24 @@ const MiniTable = ({
             </p>
           </div>
         )}
+        {href ? (
+          <LinkComponent
+            href={`${href}`}
+            className="ml-auto mr-auto text-center flex mt-4"
+            variant="link"
+          >
+            <p className="text-sm text-muted-foreground">View more</p>
+          </LinkComponent>
+        ) : null}
+        {gameId ? (
+          <LinkComponent
+            href={`/games/${gameId}`}
+            className="ml-auto mr-auto text-center flex mt-4"
+            variant="link"
+          >
+            <p className="text-sm text-muted-foreground">View more</p>
+          </LinkComponent>
+        ) : null}
       </CardContent>
     </Card>
   );

@@ -1,0 +1,236 @@
+[
+  {
+    "name": "Riyadh Masters 2024",
+    "game_id": "dota",
+    "starts_at": "2024-06-30T22:00:00.000Z",
+    "ends_at": "2024-06-30T22:00:00.000Z"
+  },
+  {
+    "name": "DreamLeague Season 23",
+    "game_id": "dota",
+    "starts_at": "2024-05-19T22:00:00.000Z",
+    "ends_at": "2024-05-25T22:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024",
+    "game_id": "dota",
+    "starts_at": "2024-04-21T22:00:00.000Z",
+    "ends_at": "2024-04-27T22:00:00.000Z"
+  },
+  {
+    "name": "DreamLeague Season 22",
+    "game_id": "dota",
+    "starts_at": "2024-02-24T23:00:00.000Z",
+    "ends_at": "2024-03-09T23:00:00.000Z"
+  },
+  {
+    "name": "Games of the Future 2024",
+    "game_id": "dota",
+    "starts_at": "2024-02-18T23:00:00.000Z",
+    "ends_at": "2024-02-24T23:00:00.000Z"
+  },
+  {
+    "name": "LATAM Rookie Challenge 10",
+    "game_id": "dota",
+    "starts_at": "2024-02-11T23:00:00.000Z",
+    "ends_at": "2024-03-21T23:00:00.000Z"
+  },
+  {
+    "name": "LATAM Rookie Challenge 10",
+    "game_id": "dota",
+    "starts_at": "2024-02-11T23:00:00.000Z",
+    "ends_at": "2024-03-21T23:00:00.000Z"
+  },
+  {
+    "name": "BetBoom Dacha Dubai 2024",
+    "game_id": "dota",
+    "starts_at": "2024-02-03T23:00:00.000Z",
+    "ends_at": "2024-02-15T23:00:00.000Z"
+  },
+  {
+    "name": "RES Regional Series: SEA #1",
+    "game_id": "dota",
+    "starts_at": "2024-02-02T23:00:00.000Z",
+    "ends_at": "2024-02-20T23:00:00.000Z"
+  },
+  {
+    "name": "United Series 1",
+    "game_id": "dota",
+    "starts_at": "2024-02-01T23:00:00.000Z",
+    "ends_at": "2024-02-28T23:00:00.000Z"
+  },
+  {
+    "name": "EPL World Series: America Season 9",
+    "game_id": "dota",
+    "starts_at": "2024-01-30T23:00:00.000Z",
+    "ends_at": "2024-02-18T23:00:00.000Z"
+  },
+  {
+    "name": "North American Dota Challengers League Season 6 Division 1",
+    "game_id": "dota",
+    "starts_at": "2024-01-25T23:00:00.000Z",
+    "ends_at": "2024-03-01T23:00:00.000Z"
+  },
+  {
+    "name": "North American Dota Challengers League Season 6 Division 2",
+    "game_id": "dota",
+    "starts_at": "2024-01-25T23:00:00.000Z",
+    "ends_at": "2024-03-01T23:00:00.000Z"
+  },
+  {
+    "name": "New Year Cup 2024",
+    "game_id": "dota",
+    "starts_at": "2024-01-18T23:00:00.000Z",
+    "ends_at": "2024-02-14T23:00:00.000Z"
+  },
+  {
+    "name": "BetBoom Dacha Dubai 2024: Solo Tournament",
+    "game_id": "dota",
+    "starts_at": "2024-02-09T23:00:00.000Z",
+    "ends_at": "2024-02-09T23:00:00.000Z"
+  },
+  {
+    "name": "European Pro League Season 16",
+    "game_id": "dota",
+    "starts_at": "2024-01-15T23:00:00.000Z",
+    "ends_at": "2024-02-09T23:00:00.000Z"
+  },
+  {
+    "name": "NADCL Season 6: Sunday Evening Cup Series #2",
+    "game_id": "dota",
+    "starts_at": "2024-02-03T23:00:00.000Z",
+    "ends_at": "2024-02-03T23:00:00.000Z"
+  },
+  {
+    "name": "Malaysia Esports Championship 2024",
+    "game_id": "dota",
+    "starts_at": "2024-01-31T23:00:00.000Z",
+    "ends_at": "2024-02-03T23:00:00.000Z"
+  },
+  {
+    "name": "Frios Show 2",
+    "game_id": "dota",
+    "starts_at": "2024-01-29T23:00:00.000Z",
+    "ends_at": "2024-02-02T23:00:00.000Z"
+  },
+  {
+    "name": "MESA Champions Winter 2023-2024",
+    "game_id": "dota",
+    "starts_at": "2024-01-30T23:00:00.000Z",
+    "ends_at": "2024-02-01T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: China Closed Qualifier",
+    "game_id": "dota",
+    "starts_at": "2024-01-27T23:00:00.000Z",
+    "ends_at": "2024-01-29T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: MENA Closed Qualifier",
+    "game_id": "dota",
+    "starts_at": "2024-01-27T23:00:00.000Z",
+    "ends_at": "2024-01-29T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: Western Europe Closed Qualifier",
+    "game_id": "dota",
+    "starts_at": "2024-01-27T23:00:00.000Z",
+    "ends_at": "2024-01-29T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: South America Closed Qualifier",
+    "game_id": "dota",
+    "starts_at": "2024-01-27T23:00:00.000Z",
+    "ends_at": "2024-01-29T23:00:00.000Z"
+  },
+  {
+    "name": "NADCL Season 6: Sunday Evening Cup Series #1",
+    "game_id": "dota",
+    "starts_at": "2024-01-27T23:00:00.000Z",
+    "ends_at": "2024-01-27T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: Southeast Asia Closed Qualifier",
+    "game_id": "dota",
+    "starts_at": "2024-01-25T23:00:00.000Z",
+    "ends_at": "2024-01-27T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: Eastern Europe Closed Qualifier",
+    "game_id": "dota",
+    "starts_at": "2024-01-25T23:00:00.000Z",
+    "ends_at": "2024-01-27T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: North America Closed Qualifier",
+    "game_id": "dota",
+    "starts_at": "2024-01-25T23:00:00.000Z",
+    "ends_at": "2024-01-27T23:00:00.000Z"
+  },
+  {
+    "name": "BetBoom Streamers Battle 5",
+    "game_id": "dota",
+    "starts_at": "2024-01-21T23:00:00.000Z",
+    "ends_at": "2024-01-27T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: China Open Qualifier #2",
+    "game_id": "dota",
+    "starts_at": "2024-01-23T23:00:00.000Z",
+    "ends_at": "2024-01-24T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: Southeast Asia Open Qualifier #2",
+    "game_id": "dota",
+    "starts_at": "2024-01-23T23:00:00.000Z",
+    "ends_at": "2024-01-24T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: MENA Open Qualifier #2",
+    "game_id": "dota",
+    "starts_at": "2024-01-23T23:00:00.000Z",
+    "ends_at": "2024-01-24T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: Eastern Europe Open Qualifier #2",
+    "game_id": "dota",
+    "starts_at": "2024-01-23T23:00:00.000Z",
+    "ends_at": "2024-01-24T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: Western Europe Open Qualifier #2",
+    "game_id": "dota",
+    "starts_at": "2024-01-23T23:00:00.000Z",
+    "ends_at": "2024-01-24T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: South America Open Qualifier #2",
+    "game_id": "dota",
+    "starts_at": "2024-01-23T23:00:00.000Z",
+    "ends_at": "2024-01-24T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: North America Open Qualifier #2",
+    "game_id": "dota",
+    "starts_at": "2024-01-23T23:00:00.000Z",
+    "ends_at": "2024-01-23T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: China Open Qualifier #1",
+    "game_id": "dota",
+    "starts_at": "2024-01-21T23:00:00.000Z",
+    "ends_at": "2024-01-22T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: Southeast Asia Open Qualifier #1",
+    "game_id": "dota",
+    "starts_at": "2024-01-21T23:00:00.000Z",
+    "ends_at": "2024-01-22T23:00:00.000Z"
+  },
+  {
+    "name": "ESL One Birmingham 2024: Eastern Europe Open Qualifier #1",
+    "game_id": "dota",
+    "starts_at": "2024-01-21T23:00:00.000Z",
+    "ends_at": "2024-01-22T23:00:00.000Z"
+  }
+]

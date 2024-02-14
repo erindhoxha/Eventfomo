@@ -47,4 +47,11 @@ const tournaments = rows
   })
   .get();
 
-console.log(tournaments);
+fs.writeFile(
+  "dota-tournaments-from-cheerio.json",
+  JSON.stringify(tournaments, null, 2),
+  (err: Error) => {
+    if (err) throw err;
+    console.log("Tournaments data has been saved!");
+  },
+);

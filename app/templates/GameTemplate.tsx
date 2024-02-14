@@ -68,19 +68,25 @@ const GameTemplate = async ({
           <MiniTable
             title="Popular ongoing events"
             items={currentEvents}
-            href="current"
+            href={
+              currentEvents && currentEvents.length > 7 ? "current" : undefined
+            }
           />
         </div>
         <div className="grid gap-4 md:grid-cols-2 mt-4">
           <MiniTable
             title="Recent Tournaments"
             items={previousEvents}
-            href="recent"
+            href={
+              previousEvents && previousEvents.length > 7 ? "recent" : undefined
+            }
           />
           <MiniTable
             title="Upcoming Tournaments"
             items={futureEvents}
-            href="upcoming"
+            href={
+              futureEvents && futureEvents.length > 7 ? "upcoming" : undefined
+            }
           />
         </div>
       </div>
