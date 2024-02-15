@@ -86,7 +86,7 @@ const Header = ({ user }: { user: User | undefined }) => {
           </NavigationMenuList>
         </UINavigationMenu>
       </div>
-      <div className="flex items-center space-x-4 lg:space-x-6">
+      <div className="pl-2 flex items-center space-x-4 lg:space-x-6">
         {!user?.email && (
           <LinkComponent variant="outline" href="/login">
             Login

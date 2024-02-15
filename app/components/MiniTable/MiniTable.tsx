@@ -142,7 +142,7 @@ const MiniTable = ({
         {href ? (
           <LinkComponent
             href={`${href}`}
-            className="ml-auto mr-auto text-center flex mt-4"
+            className="ml-auto mr-auto text-center flex mt-4 pb-0"
             variant="link"
           >
             <p className="text-sm text-muted-foreground">View more</p>
