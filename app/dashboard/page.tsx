@@ -7,9 +7,9 @@ export default async function DashboardPage() {
   const session = await getSession();
   const user = session?.user;
 
-  // if (!user) {
-  //   redirect("/");
-  // }
+  if (!user) {
+    redirect("/");
+  }
 
   return (
     <div className="space-y-6">
