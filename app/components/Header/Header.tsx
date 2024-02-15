@@ -75,7 +75,9 @@ const Header = ({ user }: { user: User | undefined }) => {
                         game={navigation.game}
                         href={navigation.href}
                         className={
-                          isActive ? "bg-accent text-accent-foreground" : ""
+                          isActive
+                            ? "bg-accent text-accent-foreground font-bold"
+                            : ""
                         }
                       />
                     );

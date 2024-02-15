@@ -25,7 +25,7 @@ const NavBar = ({ navigations }: NavBarProps) => {
 
           return (
             <LinkComponent
-              variant={isActive ? "secondary" : undefined}
+              variant={isActive ? "active" : undefined}
               key={navigation.game}
               href={navigation.href}
             >
