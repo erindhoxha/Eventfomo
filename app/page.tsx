@@ -67,9 +67,8 @@ export default async function Home() {
         <Box className="flex-col max-w-xs sm:max-w-lg lg:max-w-md text-sm flex">
           <Animated />
           <Paragraph>
-            The events you can't miss, the best content from your favourite
-            games, in a daily email that you can sync on your calendar. Start
-            getting emails today.
+            Daily newsletter that notifies you about upcoming events and
+            tournaments.
           </Paragraph>
         </Box>
         <Box
@@ -84,20 +83,17 @@ export default async function Home() {
         <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-3 w-full mt-4">
           <Card
             title="1. Subscribe"
-            description="Subscribe with your email address. Please note that we will send you emails 24 hours prior to a tournament, so you won't miss any game."
+            description="We will send you emails 24 hours prior to a tournament, so you won't miss any game."
           />
           <Card
             title="2. Select"
-            description="Select the games you want to follow or sync on your calendar. You can also choose all games, we will send you an email before a tournament happens."
+            description="Select the games you want to follow or sync on your calendar."
           />
           <Card
             title="3. Sync"
-            description="Enjoy everyday emails that you can sync on your calendar. You can sync with your Google calendar, Outlook and Apple calendar."
+            description="You can sync with your Google calendar, Outlook and Apple calendar."
           />
         </div>
-        <SmallMutedText marginTop="2">
-          You can unsubscribe anytime.
-        </SmallMutedText>
       </div>
       <Box marginTop={12} className="sm:mt-24 w-full">
         <H3>Events and tournaments</H3>

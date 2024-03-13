@@ -23,13 +23,11 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import SwitchBox from "../SwitchBox/SwitchBox";
 import { Separator } from "@/components/ui/separator";
 import { Box } from "../Box/Box";
 import Link from "next/link";
-import LinkComponent from "../Link/Link";
 
 const formSchema = z.object({
   email: z.string().min(2, {
@@ -131,11 +129,11 @@ const Form = () => {
               <FormItem>
                 <FormControl>
                   <div>
-                    <p className="text-sm mb-1.5">Join 100+ users</p>
+                    <p className="text-sm mb-1.5">Email address:</p>
                     <div className="flex flex-col sm:flex-row max-w-sm space-y-2 sm:space-y-0">
                       <Input
                         className="lg:min-w-[250px]"
-                        placeholder="Your best email"
+                        placeholder="john@doe.com"
                         {...field}
                       />
                       <Button
@@ -157,9 +155,10 @@ const Form = () => {
                   </div>
                 </FormControl>
                 <FormMessage className="text-destructive" />
-                <FormDescription className="max-w-[230px]">
-                  We will send you events on this email 24 hours before
-                  tournaments start.
+                <FormDescription className="max-w-[300px]">
+                  I agree to receive emails, with the understanding that I may
+                  easily opt-out of these communications at any time after
+                  signing up.
                 </FormDescription>
               </FormItem>
             )}
