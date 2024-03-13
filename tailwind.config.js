@@ -83,8 +83,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-  safelist: [
-    // Retain all classes starting with...,
-    { pattern: /(m|mt|ml|mr|mb)-./ },
-  ],
 };

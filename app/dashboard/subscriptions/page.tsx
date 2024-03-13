@@ -33,7 +33,7 @@ export default async function Page() {
   const user = session?.user;
 
   if (!user) {
-    redirect("/");
+    redirect("/login");
   }
 
   const subscriptions = await useSubscriptions({
